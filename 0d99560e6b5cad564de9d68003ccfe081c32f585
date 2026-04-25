@@ -1,0 +1,41 @@
+web/src/components/layout/headerbar/index.jsx
+  0f998895e7af5b42 66
+web/src/components/layout/headerbar/MobileMenuButton.jsx
+  0f998895e7af5b42 22,25-31,42-44,46
+web/src/components/layout/headerbar/UserArea.jsx
+  0f998895e7af5b42 143,155,161,169,177-178,196,208
+web/src/hooks/dashboard/useDashboardStats.jsx
+  0f998895e7af5b42 51,73,95,117
+web/src/components/layout/SiderBar.jsx
+  0f998895e7af5b42 21,23-24,26,32-33,55-207,210,223,232,241,246,251,260,266-267,281,286,290,298,304,316,322,328,334,339-340,348,357,360,380,386,396,398,407,426-431,438,451,459-460,468,471-484,488-489,492-494,496,498-502
+web/src/components/layout/PageLayout.jsx
+  0f998895e7af5b42 26-28,41-52,84,107-113,115,185-188,190-195,197-198,200-205,207-209,212,216,220,222,224
+web/src/components/dashboard/DashboardHeader.jsx
+  0f998895e7af5b42 40,44-45,54-55
+web/src/components/layout/headerbar/HeaderLogo.jsx
+  0f998895e7af5b42 58
+web/src/hooks/common/useHeaderBar.js
+  0f998895e7af5b42 31-34
+web/src/components/layout/headerbar/Navigation.jsx
+  0f998895e7af5b42 33,73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0d99560e6b5cad564de9d68003ccfe081c32f585",
+  "prompts": {
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 332,
+      "total_deletions": 485,
+      "accepted_lines": 312,
+      "overriden_lines": 0
+    }
+  }
+}
