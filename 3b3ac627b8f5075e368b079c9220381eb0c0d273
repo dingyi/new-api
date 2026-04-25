@@ -1,0 +1,29 @@
+web/src/components/layout/PageLayout.jsx
+  0f998895e7af5b42 27,195-199,201,209,215,232-249
+web/src/components/layout/headerbar/index.jsx
+  0f998895e7af5b42 21,85-91,136-146
+web/src/index.css
+  0f998895e7af5b42 33-38
+web/src/helpers/render.jsx
+  0f998895e7af5b42 235-239,243
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "3b3ac627b8f5075e368b079c9220381eb0c0d273",
+  "prompts": {
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 71,
+      "total_deletions": 35,
+      "accepted_lines": 59,
+      "overriden_lines": 0
+    }
+  }
+}
