@@ -1,0 +1,25 @@
+web/src/components/table/tokens/index.jsx
+  4b659217212e4b81 22,26-29,118-119,123,129,138-145,168,173,198,218-219,222,324-335,399-478
+TODO.md
+  4b659217212e4b81 78,142
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "ba3595175e37d367016e6c6f5eecaf12c81d881c",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 119,
+      "total_deletions": 75,
+      "accepted_lines": 118,
+      "overriden_lines": 0
+    }
+  }
+}
