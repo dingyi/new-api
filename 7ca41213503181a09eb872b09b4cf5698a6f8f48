@@ -1,0 +1,25 @@
+web/src/components/layout/SiderBar.jsx
+  0f998895e7af5b42 24,196,220-234
+web/src/components/layout/PageLayout.jsx
+  0f998895e7af5b42 27,233-236,238-239
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "7ca41213503181a09eb872b09b4cf5698a6f8f48",
+  "prompts": {
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 7,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    }
+  }
+}
