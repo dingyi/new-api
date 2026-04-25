@@ -1,0 +1,38 @@
+web/src/components/table/model-pricing/view/table/PricingTable.jsx
+  4b659217212e4b81 20-21,23,26,28-54,62-63,80,112-113,116,118-126,128-130,132-138,140,142,155,157-164,166-181,183-189,191-321,323-351,354-411
+TODO.md
+  4b659217212e4b81 79,144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "8eedbad5417b15039b59b39b97232f6a5c5d63b7",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1253,
+      "total_deletions": 119,
+      "accepted_lines": 1222,
+      "overriden_lines": 0
+    },
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 318,
+      "total_deletions": 46,
+      "accepted_lines": 314,
+      "overriden_lines": 1
+    }
+  }
+}
