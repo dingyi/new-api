@@ -1,0 +1,25 @@
+web/src/components/layout/SiderBar.jsx
+  0f998895e7af5b42 20,24,29-30,56,310-311,313,315,317,334,455-457,459,461,465,470,473-507,510,522,568,571,577
+TODO.md
+  0f998895e7af5b42 147-153
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "dc4321fa4bb51dc03da8354df9b66782a7e9a4c2",
+  "prompts": {
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 65,
+      "total_deletions": 16,
+      "accepted_lines": 65,
+      "overriden_lines": 0
+    }
+  }
+}
