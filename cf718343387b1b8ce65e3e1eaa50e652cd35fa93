@@ -1,0 +1,428 @@
+web/src/pages/Setting/Model/SettingModelDeployment.jsx
+  89c3f2ff250d651a 20-21,30,32-35,37-38,44-45,47-50,73,101,104,107-108,114-115,117-118,122,124-126,129-133,136-137,141-195,198-205,207-210,212-215,217,224-228,230,232,234-245,247-250
+web/src/components/layout/headerbar/NotificationButton.jsx
+  441936bac2ac66ca 24-33,37-42,46
+web/src/components/playground/CodeViewer.jsx
+  89c3f2ff250d651a 27-29,77,204,277,289,302-305,312-315,319,357,369-371,379
+  69595bb4377d0836 21,24,233,240
+web/src/pages/Setting/Operation/SettingsMonitoring.jsx
+  89c3f2ff250d651a 20-21,33,44-109,113-121,123-125,128,130-134,136-137,139-140,142,144-145,147-148,151-161,163,165-169,171-181,184-200,203-204,208-275,280-307,310-312
+web/src/hooks/common/useHeaderBar.js
+  89c3f2ff250d651a 152-155,159-163,165-166,170,172,175-179,181-183,186-190,192-193
+web/src/components/table/task-logs/TaskLogsColumnDefs.jsx
+  89c3f2ff250d651a 21,23-24,26,28-30,34-35,47-64,66,84-114,116-133,135-170,172-180,187,194,196,200,202,206,208,212,214,218,220,224,226,230,232,236,238,244,248,252,254,262,264,268,270,274,276,280,282,286,288,292,294,298,300,304,306,310,312,331,337,343,345,351-358,366-367,369,376,382,388-395,401,407-414,416-419,428,438,463,473,475,477
+.cursor/rules/project.mdc
+  69595bb4377d0836 15
+web/src/components/settings/ChannelSelectorModal.jsx
+  89c3f2ff250d651a 22,24,28,30-39,48-117,133,177,181,193-198,200-241,244-246,256-257,262-263,265-275,277,279-280,283-284,286,291-294,296,299-307,310-313,315,317-320,322-377,379-406,408-465
+web/src/pages/Setting/Dashboard/SettingsAnnouncements.jsx
+  89c3f2ff250d651a 20,23,25-30,33-34,36,38-40,42,52-80,82-96,98-107,125-127,153-154,156-157,170,172,186,200,204-205,207,211,215-220,236,243-244,247,261,265,268,277-278,288,297,302,311,321-323,327-372,374,377-378,381,383-384,386-389,395-399,403,406-410,417,419,421-428,430-431,434-531,535-543,545-551,553-565,567-570,572,574-582,584-718,721-735,737-750,752-757,760-762,764-771,773-775
+web/src/components/table/models/modals/EditPrefillGroupModal.jsx
+  89c3f2ff250d651a 20-22,38-58,60-110,120,123-125,133-135,139-142,145-148,150-162,164-182,185,192,195,197,199,203,205,207,212-213,218-242,244-267,269,271-272,277-286,288-328,330-343,348-349,351-358,360,362,364-365,367-387
+web/src/i18n/locales/zh-TW.json
+  441936bac2ac66ca 115
+web/src/components/table/model-pricing/modal/PricingFilterModal.jsx
+  89c3f2ff250d651a 22-30,52-57,60-69,74-79,81-85
+web/src/pages/Setting/Ratio/components/GroupTable.jsx
+  89c3f2ff250d651a 2-3,55-57,109-112,115,138-148,150-151,159-161,164-169,180-184,186-187,198-199,201-205,208,216-222,224-225,241,243,248-251,257,260
+web/src/components/settings/personal/cards/CheckinCalendar.jsx
+  89c3f2ff250d651a 25,27-33,39-40,46-48,52-159,277,280-288,294-295,297,301,303-305,307-312,321-330,334-335,337-341,345,348,350,352-353,355,357-360,368,371-376,386-406,408-412,414-420,423-429,431-432
+web/src/components/table/channels/modals/EditChannelModal.jsx
+  89c3f2ff250d651a 31-32,67,2305-2306,3652-3653,3661-3662,3687-3689
+web/src/components/dashboard/UptimePanel.jsx
+  69595bb4377d0836 21-22,40-42,50-54,56-58,60-61,64-68,75-78,80,82,86,89-90,92,95,97-101,105,111-117,119-121,137-138,141-142
+  0f998895e7af5b42 43,55,128,136
+web/src/App.jsx
+  89c3f2ff250d651a 67-69,95
+web/src/hooks/common/useUserPermissions.js
+  89c3f2ff250d651a 31-32,37-39,42,46-47
+web/hero-ui-migration-inventory.json
+  89c3f2ff250d651a 1-146
+web/src/hooks/channels/useChannelsData.jsx
+  69595bb4377d0836 825-831
+  89c3f2ff250d651a 661
+web/src/components/table/model-pricing/view/card/PricingCardView.jsx
+  89c3f2ff250d651a 21-23,26,92,96,106,117,122,124,129,134,138,140,144,146,150,152,156,162,164-165,168,191,204-212,238,240-241,258-261,265-268,270,272-273,275-277,279-281,287,291,297,299,302,312,314,341,347
+web/src/pages/Setting/Dashboard/SettingsAPIInfo.jsx
+  89c3f2ff250d651a 20,23,25-30,32-34,37-96,98-111,113-128,145-148,155-156,158-159,172,174,182-183,195,199-201,204,208-213,224,231-232,235,250,258-259,269,278,283,292,302-304,308-342,344,348,351,353-354,356-359,365-369,373,376-380,387,389,391-398,400-401,404-454,456-484,487-503,505-511,514-542,544-559,561-570,572-593,595-622,624-643,645-664,666-671,674-675,678-684,687-689
+web/src/pages/Setting/Operation/SettingsSensitiveWords.jsx
+  89c3f2ff250d651a 21,31,35-64,68-72,74,76,81-95,97-102,107,110-119,122-123,125,127-172,176-177
+web/src/pages/Setting/Ratio/components/GroupSpecialUsableRules.jsx
+  89c3f2ff250d651a 20,22-26,69,93-102,112,116-128,131,133-134,137-138,140-141,143,147-157,159-164,166-167,170-180,182-191,193-197,199-200,202-215,217-225,227-228,230,283,300,334-359,363,368,371,390
+web/src/i18n/locales/ja.json
+  441936bac2ac66ca 116
+web/src/components/layout/PageLayout.jsx
+  69595bb4377d0836 24,42-66,116,122,126-127,175,184,199-200,209,226,228,242,259,263,271-275
+  89c3f2ff250d651a 89,91,180,202,205,238-239,244-253
+web/src/components/dashboard/DashboardHeader.jsx
+  0f998895e7af5b42 21,35,42-47,49,51-59
+web/src/pages/Setting/Performance/SettingsPerformance.jsx
+  89c3f2ff250d651a 21-22,220,513,528,544-545,576,620,638,640-641
+web/src/components/table/subscriptions/index.jsx
+  89c3f2ff250d651a 21,76-83
+web/src/components/layout/headerbar/UserArea.jsx
+  441936bac2ac66ca 20,22,24-29,33-50,61-88,101-134,137-143,146-152,155,158-159,161-186,195-200,208
+web/src/components/table/model-pricing/modal/ModelDetailSideSheet.jsx
+  89c3f2ff250d651a 20-22,48-56,58-64,66-73,75-85,87-102,130-132
+web/src/components/settings/RatioSetting.jsx
+  89c3f2ff250d651a 21,64,96-110,112-113,115-116,118-119,121,124
+web/src/components/settings/RateLimitSetting.jsx
+  89c3f2ff250d651a 21,78-85,88
+web/src/index.css
+  25ef39782a617c8f 23-24,30-57,59,61-66,68-72,74-98,100-104,106,108-113,115-119
+  69595bb4377d0836 1-2,4-10,13-19,25-26,58,60,67,73,99,105,107,114,126-127,130-133,136-139,144-146,150-154,157-159,162-164,167-169,172,177,181-185,188,190-192,196,198-200
+  0f998895e7af5b42 140-141
+web/src/components/playground/MessageActions.jsx
+  89c3f2ff250d651a 21,57-61,64-66,73-76,79-81,91-95,98-100,116-119,122,129-131,141-145,148-150
+web/src/components/table/models/components/SelectionNotification.jsx
+  89c3f2ff250d651a 20-21,24-26,36-37,39-55,58,61,64,67-70
+web/src/components/table/subscriptions/SubscriptionsColumnDefs.jsx
+  89c3f2ff250d651a 20-21,24,26-63,65-117,152,155,157,159-162,164-165,169,171,174,176-177,179-181,185-189,195-197,199,202,206-207,209-210,215,217,221-225,227,229,231,233,235,241,245,252,259,261,269,271,281-285,289-290,295,298-299,302,305-306,312,314-316,322-325,331-334,339-355,358-366,379,402
+web/src/helpers/utils.jsx
+  89c3f2ff250d651a 20-41,82-86,160,166,878,913,919-925
+web/src/components/table/mj-logs/MjLogsColumnDefs.jsx
+  89c3f2ff250d651a 21,23,28,30,32-44,46-47,50-70,88-155,161,163,167,169,173,175,179,181,185,187,191,193,197,199,203,205,209,211,215,217,221,223,227,229,233,235,239,241,245,247,251,253,257,259,263,265,269,271,280,282,286,288,292,294,298,300,304,306,315,317,321,323,327,329,333,335,339,341,345,347,351,353,377,379,396,402,408-416,418-419,427,433,439,445,451-452,454-456,462-463,465,475-476,478,480,488-489,491,493,502-503,505,507
+web/src/pages/Setting/Model/SettingGrokModel.jsx
+  89c3f2ff250d651a 20-21,39-88,95-96,98-101,104-105,111-112,115-116,118,120-122,136-139,141-153,157-160,162-163,165-167,174,179-181,183,185-189,192-194
+web/src/hooks/tokens/useTokensData.jsx
+  89c3f2ff250d651a 364
+  69595bb4377d0836 127
+web/src/pages/Setting/Dashboard/SettingsFAQ.jsx
+  89c3f2ff250d651a 20,23,25-30,33-34,37-39,41,45,47-50,52-67,78-82,89-90,92-93,106,108,116-117,123-124,129-133,144,151-152,155,161-166,177,181,184,194,204,213,218,227,237-239,243-277,279,283,286,288-289,291-294,300-304,308,311-315,322,324,326-333,335-336,339-405,410-426,428-434,436-471,473-477,479-493,495-518,520,522-547,550-551,554-560,563-565
+web/src/components/topup/SubscriptionPlansCard.jsx
+  89c3f2ff250d651a 21,31,38,188-204,207-211,248,256,266,269-271,273-274,277-278,280,282,285-288,290,292-295,297-298,304-307,310,312,314,316,318,321,324,328,330-331,333-366,370,374,379,402,411,413,415,417,465,476,479,527-528,531,534,537,539,541,543,545,549,561,591,593,602-605,621,631,644
+web/src/components/settings/personal/components/UserInfoHeader.jsx
+  89c3f2ff250d651a 21,31-48,65-83,86,97-98,100-102,106-108,110-116,122-125,127,134,136,140-141,143,146-147,149,152-153,156,160,162,167,169,171,175,177,179,183,185,188,190
+web/src/components/table/model-pricing/layout/content/PricingContent.jsx
+  89c3f2ff250d651a 29-30,33-34,52,56-57
+web/src/components/table/model-pricing/view/table/PricingTable.jsx
+  89c3f2ff250d651a 21-23,25,48-49,63,77,99,111-116
+web/src/components/settings/HttpStatusCodeRulesInput.jsx
+  89c3f2ff250d651a 21,23-26,28,34,36-43,45-46,48-52,54,56,59,62-64,69-71
+web/src/pages/Setting/index.jsx
+  89c3f2ff250d651a 56,183,185,189,192-195,197-200,203-217,219-225
+web/src/pages/Setting/Operation/SettingsGeneral.jsx
+  89c3f2ff250d651a 20-21,31,45-117,122-123,125-128,138,143-144,146-147,150,152-154,171,173,175,251-253,266,271,282-288,290-294,296-300,302-304,306-317,319-330,332-345,347-360,362-363,365,367-375,377-380,382-385,387-390,392-399,401-407,410-423
+.gitignore
+  0f998895e7af5b42 25-30
+web/src/pages/Setting/Model/SettingClaudeModel.jsx
+  89c3f2ff250d651a 20-21,58-62,64-92,94-135,139-157,160,163-164,166,170-171,173-174,177,179-181,184-186,195-203,209-211,217,223-230,233-266,268-271
+web/src/components/settings/PerformanceSetting.jsx
+  89c3f2ff250d651a 21,69-76,79
+web/src/components/table/model-pricing/layout/header/PricingVendorIntroSkeleton.jsx
+  89c3f2ff250d651a 21,101-102,104,166-167,198
+web/src/components/layout/headerbar/LanguageSelector.jsx
+  441936bac2ac66ca 20,24-43,45-66,68-70,72-102
+web/src/components/table/usage-logs/components/ParamOverrideEntry.jsx
+  89c3f2ff250d651a 24-25,27-30,34
+web/src/components/table/channels/index.jsx
+  89c3f2ff250d651a 21,77-79,82-84
+web/src/components/settings/ModelDeploymentSetting.jsx
+  89c3f2ff250d651a 21,75-81,83-84
+web/src/components/table/model-pricing/modal/components/ModelPricingTable.jsx
+  89c3f2ff250d651a 21-22,25-39,58,63,66-70,72-74,76-77,79-91,94-98,100-102,104-105,107,110-126,128-130,132-167,169-193,196-202,204
+web/src/components/table/model-pricing/modal/components/ModelBasicInfo.jsx
+  89c3f2ff250d651a 21-22,28-29,46,49-53,55-82,84
+web/src/components/settings/PersonalSetting.jsx
+  89c3f2ff250d651a 37,201,396,450,453,465,467,488,492,503
+web/src/components/common/ui/HoverPanel.jsx
+  89c3f2ff250d651a 1-92
+web/src/components/settings/personal/cards/PreferencesSettings.jsx
+  89c3f2ff250d651a 21,71-72,75,77,87,92-94,96,99-100,103,106-108,111-112,123,125,127,129,146,148-149,151,154,156-157,159-161,163-165,167,173,177
+web/src/components/table/redemptions/modals/EditRedemptionModal.jsx
+  89c3f2ff250d651a 20,35-40,42-71,73-82,88-90,92-93,95,101,103-117,120,123-132,135-137,141-149,151,153-156,161-163,168-171,173-176,178-180,182-188,190-191,196-202,205,215-221,225-230,232,237-242,244-247,251,255-284,286-288,290,292-297,299-315,317,319-320,326-331,333-343,346-367,369-375,377,379-380,386,388,391-395,397-405,411-416,419-423,425-448,450-455,457-488
+web/src/components/dashboard/ApiInfoPanel.jsx
+  0f998895e7af5b42 21-22,37-40,45-46,51,53-54,59,63-66,68,70-74,78,80,85,92,96,99,104-110,112-114,118
+web/src/components/playground/DebugPanel.jsx
+  89c3f2ff250d651a 21,48,50-54,60-84,86-93,95,113,115,120-126,128,132-151,153-158,165,171
+web/src/pages/Setting/Dashboard/SettingsUptimeKuma.jsx
+  89c3f2ff250d651a 20,23,25-30,32-34,37-40,42-57,73-76,83-84,86-87,100,102,110-111,122,127-131,134-136,138-141,143-144,156,163-164,167,173-178,189,193,196,204-205,215,224,229,238,248-250,254-288,290,294,297,299-300,302-305,311-315,319,322-326,333,335,337-344,346-347,350-398,400-420,423-439,441-447,450-478,480-539,541-558,562-587,590-591,594-600,603-605
+web/src/i18n/locales/zh-CN.json
+  441936bac2ac66ca 109
+web/src/components/dashboard/StatsCards.jsx
+  0f998895e7af5b42 21,41-42,44-47,57,60,63-67,69,74-77,80,94
+web/src/pages/Setting/Payment/SettingsPaymentGatewayCreem.jsx
+  89c3f2ff250d651a 19,23-33,36-67,72,91-92,95-96,102,104-105,107,111,115,118,131,134,136,143-144,214-217,219,222-227,229-231,233-238,240-241,243-245,247-258,260,262-270,273-284,286-289,291-297,301-303,305-367,369-514,516
+web/src/helpers/render.jsx
+  89c3f2ff250d651a 21,23-150,236,686,937-938,1066,1069,1072
+web/src/components/table/models/modals/UpstreamConflictModal.jsx
+  89c3f2ff250d651a 24-25,28,30-40,53-97,204,223-228,231-238,240-245,248,250-256,258,261-262,265-266,269-357,362-365,372-412
+web/src/components/settings/OperationSetting.jsx
+  89c3f2ff250d651a 21,123-126,128-135,137-142,145-146,149-150,153-154,157-158,160-161
+web/src/components/table/models/ModelsColumnDefs.jsx
+  89c3f2ff250d651a 20-22,27-28,34,36-99,101-120,140-141,143,152,154,165,167,181,183,193,195,213,215,220,222,226,228,240,242,247,254-256,258,261-264,270-272,279-281,290-293,297-313,316-334,338-341,351,362-363,387,398,400,411,441,446,452
+web/src/components/table/models/ModelsActions.jsx
+  89c3f2ff250d651a 20,24,30,32-71,109,116,137,139-140,142-143,151-152,154,159,161-162,171,179-180,182-183,190,193-194,196,217,219-222,224,228-229
+web/src/pages/Setting/Model/SettingGeminiModel.jsx
+  89c3f2ff250d651a 20-21,32-33,45-124,132-156,160-165,168,170-172,176,186-195,201-206,210-233,235-245,247-285,288-290
+web/src/components/table/channels/modals/ChannelUpstreamUpdateModal.jsx
+  89c3f2ff250d651a 20,23,25-35,48,54-69,96,110,158-170,172,202,204,212-230,233-242,246-271,286-287,289,291-292,295-299,301,303-314,316-322,324-330,335,340-341,344-364,366-388
+web/src/components/table/users/modals/UserSubscriptionsModal.jsx
+  89c3f2ff250d651a 12,21-22,27,29,31-32,39-50,60-62,70,78,82,95-96,106,149,153,156-163,178,183,196,210-211,214,228-229,251,254,274,294-296,300,317,319-331,337-348,353,358,362-381,383-384,386-389,391-430,442,446,449-454,456-457,459,461-472,474-476
+web/src/components/dashboard/AnnouncementsPanel.jsx
+  0f998895e7af5b42 21-22,36-39,44,46,69,74-75,78,82-90,92,95,102,105-111,113-115,119
+web/src/components/playground/ChatArea.jsx
+  89c3f2ff250d651a 20-22,44-45,47-52,54-97,111,122,124-125,127,132-135,137,145-152,154-196
+web/src/hooks/common/useSidebar.js
+  89c3f2ff250d651a 116-118
+web/src/components/playground/SSEViewer.jsx
+  89c3f2ff250d651a 21,31,33-52,125,128,140,142,153,155,165,167,178,184-192,195,199,201,204,207,209,212,214,232,236-237,239,246-248,250,262-264,266,270,279,281,283-296,319-328,330
+web/src/components/table/model-pricing/layout/header/PricingVendorIntro.jsx
+  89c3f2ff250d651a 22,24,26-33,92,94,114-115,119,132,134,167-176,185-202,205,338,340,352,354-355,359,361-363,368,374
+web/src/components/playground/SettingsPanel.jsx
+  89c3f2ff250d651a 21,70,76,78,83-89,91,95,109,118,122,124,126,128,146,150,154,156,158,160,177,181,194,205,210,212,214,216,220,222-229,234
+web/src/components/common/ui/HeroIconsCompat.jsx
+  89c3f2ff250d651a 1-20
+web/src/hooks/playground/useMessageEdit.jsx
+  69595bb4377d0836 26,85-89,93,107,110-111,124
+web/src/components/settings/personal/modals/ChangePasswordModal.jsx
+  89c3f2ff250d651a 22,24-33,47-52,54,56-63,65-66,68-71,73,75,77-103,115-129
+web/src/components/table/model-pricing/layout/header/SearchActions.jsx
+  89c3f2ff250d651a 21-22,69-73,79-80,85-87,89,95,102,104-109,115,117-123,130,132-137,142-143,150-151,160-161,163
+web/src/pages/Setting/Ratio/ModelRatioSettings.jsx
+  89c3f2ff250d651a 20-21,31-33,43-67,71-74,77-80,82-97,99-102,104-105,107,109-110,112-118,120-122,126-146,148-149,151,153,158,161-163,172-174,176-177,180-189,191-224,226-233,235-251,253-271,273-275,278-290,292-294
+web/src/components/playground/ConfigManager.jsx
+  69595bb4377d0836 24,56,58,73-74,76,79,87-92,94,96,99-101
+  89c3f2ff250d651a 45,81,119,122-142,144-150,152-153,166,169,171,173,175-181,183,186,189-192,194,199-202,204
+web/src/components/table/model-pricing/modal/components/ModelEndpoints.jsx
+  89c3f2ff250d651a 21-22,41,43-45,47-49,51-52,56,66-71,73,75-76,78,81-82
+web/src/components/table/model-pricing/view/table/PricingTableColumns.jsx
+  89c3f2ff250d651a 21-22,35-72,77,79,85,88,90,100,102,113-115,117,119,135,159,165,167-168,176,195,208,212,214-216,221-224,229,235,238,242,254,261
+web/src/components/playground/CustomRequestEditor.jsx
+  89c3f2ff250d651a 21,37,56,64,87,109,115,119,121,124,126-132,137-145,147,150,152,157,162,166-170,172,178,180,182-183,187-188,193,195,198,202
+web/src/components/common/ui/HeroIllustrationsCompat.jsx
+  89c3f2ff250d651a 1-20
+web/src/components/settings/ChatsSetting.jsx
+  89c3f2ff250d651a 21,71-78,80-81
+web/src/components/settings/personal/modals/EmailBindModal.jsx
+  89c3f2ff250d651a 24-33,51-57,59-65,68-75,78-80,84-85,87,89-94,102-107,111,114,117-118,120,132-146
+web/src/components/ui/semi-icons.js
+  89c3f2ff250d651a 1-158
+web/src/components/table/model-pricing/layout/PricingPage.jsx
+  89c3f2ff250d651a 41-42,44,46,49,55-56,58-70
+web/src/pages/Setting/Model/SettingGlobalModel.jsx
+  89c3f2ff250d651a 20-21,31,69-148,155,157-160,167,174-191,201,204,208-209,211-212,215,217-219,227-228,249-270,273-293,303-306,308-311,317-320,328-331,334-335,337,339-364,366-367,369-374,376-380,383-385
+web/src/components/table/channels/ChannelsTabs.jsx
+  89c3f2ff250d651a 24-37,59-75,77-80,82-83,85-100,103
+web/src/pages/Setting/Operation/SettingsLog.jsx
+  89c3f2ff250d651a 21,31-36,38-46,48,54-56,58-61,65,70-84,86-91,96-98,103-104,106-112,127-131,133-134,136-143,146-148,150-156,158-167,169-177,179-188,190-191,193-198,200-206,208-210,212-218,220,222-223,225-263
+web/src/components/table/model-deployments/modals/EditDeploymentModal.jsx
+  89c3f2ff250d651a 20,25-33,38-39,41,51-52,57-63,65-71,73-75,77-78,81,86,92,94,96-97,99,101-103,105-106,110-115,118-124,126-131,133-146,148-162,164-173,176-183,185-188,193-196,200-204
+web/src/hooks/redemptions/useRedemptionsData.jsx
+  69595bb4377d0836 21,232,252,254-258
+  89c3f2ff250d651a 219
+web/src/hooks/task-logs/useTaskLogsData.js
+  69595bb4377d0836 267
+web/src/pages/Setting/Payment/SettingsGeneralPayment.jsx
+  89c3f2ff250d651a 20-21,31,38-83,88-89,91-92,95-96,104-105,108,176,180,184,186,190-191,196-199,201-205,207-210,214-219,221-243,245-252,256,258-261,263-267,270-272
+web/src/components/ui/semi.js
+  89c3f2ff250d651a 233-242,245-251,253,255-273,276-277,393-396,402-403,412,419-425,561-565,665-667,672-678,690-692,698-700,703-706,709,726-741,743-747,749-752,973,1238-1243,1246-1249,1253-1254,1259-1261,1281,1283-1287,1289-1295,1298,1319-1320,1324-1328,1330,1338,1340,1343-1350,1361
+  69595bb4377d0836 1-232,243-244,252,254,274-275,278-392,397-401,404-411,413-418,426-560,566-664,668-671,679-689,693-697,701-702,707-708,710-725,742,748,753-972,974-1237,1244-1245,1250-1252,1255-1258,1262-1280,1282,1288,1296-1297,1299-1318,1321-1323,1329,1331-1337,1339,1341-1342,1351-1360,1362-1533
+web/src/components/table/models/ModelsTabs.jsx
+  89c3f2ff250d651a 20-24,26-105,122-123,130,135,138,146,148,155-171,173-209,211-213,217,219-229,232-236
+web/vite.config.js
+  69595bb4377d0836 64
+web/src/components/dashboard/ChartsPanel.jsx
+  69595bb4377d0836 21,41-52,55-58,65-67,69-75,78-79,81-88
+web/src/components/table/channels/modals/SingleModelSelectModal.jsx
+  89c3f2ff250d651a 23,26-34,37-47,51-82,156-162,164-168,170-173,175,177-178,181-185,187-193,195-203,205-214,216-221
+web/src/pages/Setting/Payment/SettingsPaymentGateway.jsx
+  89c3f2ff250d651a 20-21,31-63,69-70,75,77-78,81-82,85-89,93-94,97-98,121,124,126,129,133-134,139-142,144-171,173-181,183-189,191-192,194-196,198-202,205-207
+web/src/components/layout/headerbar/NewYearButton.jsx
+  441936bac2ac66ca 20,24-52,60,67-69,71-87,89,92-95
+web/src/components/playground/FloatingButtons.jsx
+  89c3f2ff250d651a 21,35,38,51-52,54-57,60,63-65,81-84
+web/src/pages/Setting/Ratio/components/GroupGroupRatioRules.jsx
+  89c3f2ff250d651a 2,4-8,56-58,66,70-82,85,87-88,91-92,94-95,97,101-111,113-118,120-121,124-125,127-154,157-162,164-170,172-173,177,252-277,281,286,289,308
+web/src/components/table/model-pricing/layout/PricingSidebar.jsx
+  89c3f2ff250d651a 21,98-99
+web/src/hooks/users/useUsersData.jsx
+  89c3f2ff250d651a 66-68,70,79-82,115-118,222
+web/src/components/playground/ImageUrlInput.jsx
+  89c3f2ff250d651a 59,61,63,65,70,72-73,75-80,82-91,96,100,102,106,108,111,119-123,127-130,134-143
+web/src/components/dashboard/FaqPanel.jsx
+  0f998895e7af5b42 22-25,39-42,47-48,51,53-71,73-75,77-78,80,83-84
+web/src/components/playground/CustomInputRender.jsx
+  69595bb4377d0836 23,48,58,60,65,70
+  89c3f2ff250d651a 90,107,125,129,132
+web/src/hooks/model-pricing/useModelPricingData.jsx
+  69595bb4377d0836 282
+  89c3f2ff250d651a 53,230-231,233,245-248,250,254-255,257-263,265-270,388
+web/src/components/common/ui/ClickMenu.jsx
+  89c3f2ff250d651a 1-110
+web/src/components/settings/DrawingSetting.jsx
+  89c3f2ff250d651a 21,73-80,83
+web/src/components/layout/headerbar/ThemeToggle.jsx
+  441936bac2ac66ca 20,26-27,61-91,93-110,112,114-120,122-125,127,131,134-135,139-142
+web/src/components/common/ui/TableFilterForm.jsx
+  89c3f2ff250d651a 1-190
+web/src/components/table/model-pricing/view/card/PricingCardSkeleton.jsx
+  89c3f2ff250d651a 21,28-32,36-38,41,43,45,47-49,51-53,59-60,64,66-67,70,73,77,81-82,86,91,96,98
+web/src/components/table/model-deployments/modals/ConfirmationDialog.jsx
+  89c3f2ff250d651a 22-23,25-33,48,56,61,66-71,74-88,90-91,93,95-96,98,100,102,104,107,109,111-127
+web/src/components/common/ui/HeroCompat.jsx
+  89c3f2ff250d651a 1-20
+web/src/pages/Setting/Ratio/ModelPricingCombined.jsx
+  89c3f2ff250d651a 21,32-36,39-42,45-46
+web/src/components/table/models/modals/PrefillGroupManagement.jsx
+  89c3f2ff250d651a 20-22,33,46,54-61,67,70,74-75,82,86,100,108-119,127-129,132-133,154-156,159,166,170,174,184-185,188-192,195-196,203-221,223-224,226-233,235-245,247,249-250,255-256,258-261,266-271,281-286,288-291,299-314
+web/src/components/settings/OtherSetting.jsx
+  89c3f2ff250d651a 21-22,27-29
+web/src/pages/Setting/Payment/SettingsPaymentGatewayWaffoPancake.jsx
+  89c3f2ff250d651a 20-22,48-123,133-134,136-138,159,163,217,261,265,267,280-282,284-291,297,302-303,305,309-327,329-336,338-346,348-353,355-360,362-370,372-378,380-388,392-398,402-403,405-411,413-420,422-424,426-428,430-434,437-439
+web/src/components/table/channels/ChannelsActions.jsx
+  89c3f2ff250d651a 20-22,24,26-98,130-196,199-200,202-204,206-207,210-212,219-221,223,228,237-239,241-243,269-270,272-274,282-283,285-287,297-298,300-302,304-305,319-322,326-341
+web/src/components/playground/ThinkingContent.jsx
+  89c3f2ff250d651a 95,97,99,101,113,115
+web/src/components/table/channels/modals/BatchTagModal.jsx
+  89c3f2ff250d651a 22-32,43-49,51-59,61,63,65-68,70,73,75-87
+web/src/components/settings/personal/modals/WeChatBindModal.jsx
+  89c3f2ff250d651a 25-32,44-50,52-58,61-66,68,72-77,82,84-85,88-89,91,93-98,101-104
+web/src/pages/Setting/Operation/SettingsCreditLimit.jsx
+  89c3f2ff250d651a 21,31-39,45-78,82-86,88,90,95-109,111-116,121,124-140,143-144,146,148-195,197-203,205-209,211,213-217,221-222
+web/src/pages/Setting/Ratio/components/AutoGroupList.jsx
+  89c3f2ff250d651a 2-3,50-53,56,89,91,94-97,111,113-117,119-121,123-129,131-139,141-156,158-159,165-168
+web/src/components/table/models/modals/MissingModelsModal.jsx
+  89c3f2ff250d651a 24-33,36-77,89,92,96-97,109,115-116,118-121,123,126-132,134-135,137,139-146,148-153,155,158-208,210-215,217,219-222
+web/src/components/table/models/modals/EditVendorModal.jsx
+  89c3f2ff250d651a 20,22-34,38-42,47,53-65,68,77-84,90-91,100,105,108-112,115,119,122-123,129,132-133,140-141,145-151,153-189,191-205,209-213,216-247
+web/src/components/settings/ModelSetting.jsx
+  89c3f2ff250d651a 21,110-115,117,121,125,129,133,135-136
+web/src/pages/Playground/index.jsx
+  69595bb4377d0836 50-51,266,392
+  89c3f2ff250d651a 65,124,133,136,152,164,180,188,191,196,200,203,210,234,239,243,247,255,258,265,271,294,301,309,323,378,380,389,396,398,422,434,437,441,447,454,464,466,496,499,521,535,550,558-559
+web/src/pages/Setting/Operation/SettingsHeaderNavModules.jsx
+  89c3f2ff250d651a 21,26-29,33-50,56,58-60,62,64,66-78,80,82,108,117,119,137-138,141-142,145-148,150-151,153-156,158,160,162-164,167-168,171-182,185,189-197,199,201-202,206-210,215
+web/src/pages/Setting/Payment/SettingsPaymentGatewayStripe.jsx
+  89c3f2ff250d651a 20-21,31-69,76-78,82-86,89-90,103-104,106-107,110-111,119,122,131,137,144-145,154,157,159,167-168,173-176,178-186,192,201,206-207,209,213-231,233-249,251-282,284-297,300-302
+web/src/hooks/usage-logs/useUsageLogsData.jsx
+  89c3f2ff250d651a 758
+  69595bb4377d0836 876
+web/src/components/table/models/modals/SyncWizardModal.jsx
+  89c3f2ff250d651a 22,24-31,33-103,118-123,126-134,137-156,158,160-168,170-198,201-202,204-215,217-226,228-234
+web/src/components/settings/personal/modals/AccountDeleteModal.jsx
+  89c3f2ff250d651a 22,25-33,48-54,56-62,65-70,73,75-80,87,90,93-94,96,109-123
+web/src/pages/Setting/Operation/SettingsCheckin.jsx
+  89c3f2ff250d651a 21,31-42,46-47,49-50,52,54,59-70,72-77,82,85-97,100-101,104-105,107-184,188-189
+web/src/components/common/ui/CardPro.jsx
+  69595bb4377d0836 21,24,70,88-90,100-104,122,131,148,158-159,161,164-167
+web/src/i18n/locales/ru.json
+  441936bac2ac66ca 126
+web/src/hooks/dashboard/useDashboardData.js
+  89c3f2ff250d651a 238-251
+web/src/pages/Setting/Operation/SettingsSidebarModulesAdmin.jsx
+  89c3f2ff250d651a 22,26-27,49-63,70,73-77,80-84,87-88,90,92,118,124,126,207-210,212-213,217-232,234-237,241-244,247,249,251-252,255-256,259-268,270,272,274-275,277-278,282-286,291
+web/src/pages/Setting/Drawing/SettingsDrawing.jsx
+  89c3f2ff250d651a 20-21,31,38-64,68-69,71-72,74,76-79,81-92,94-99,101,103-104,107-112,115-117,121-183,185-188
+web/src/components/settings/DashboardSetting.jsx
+  89c3f2ff250d651a 21,23,55,92,126-132,134-138,141,145-148,151-153,156-158,161-163,166-168,170-171
+web/src/components/table/model-pricing/modal/components/ModelHeader.jsx
+  89c3f2ff250d651a 21-22,26,52-53,58-67,73-87
+web/src/components/table/users/UsersColumnDefs.jsx
+  89c3f2ff250d651a 20-184,189,191,193,195,208,210-213,216-217,219,226,229,232,235,242-244,246,248-250,260,262-263,265-266,268-269,271,276-281,285-293,297-300,318,321,323,326,328,332,335,337-338,344,347-350,356-358,364-366,374-377,382-384,388-390,392-395,397-401,430,441,446,451,458
+web/src/components/table/users/modals/AddUserModal.jsx
+  89c3f2ff250d651a 20-22,27-28,33-34,40,42-70,73-91,96-114,116-117,119,121-126,128-138,140,142-170,172-181,184-212,214-232,234-237
+web/src/hooks/playground/useDataLoader.js
+  89c3f2ff250d651a 25-26
+web/src/pages/Setting/Dashboard/SettingsDataDashboard.jsx
+  89c3f2ff250d651a 20-21,31-36,39-41,43-46,48-50,52,54-57,59-73,75-80,82,84-85,88-98,100-106,111-200,203-205
+web/src/components/table/models/index.jsx
+  89c3f2ff250d651a 21-22,24,90,92,123-125,129-132,134-137,140-154
+web/src/pages/Setting/RateLimit/SettingsRequestRateLimit.jsx
+  89c3f2ff250d651a 20-21,32,38-74,78-80,82-88,90-95,97-100,102-116,118-123,125-129,131,133-134,137-153,156-157,161-245,251,258,264-272,275-277
+CLAUDE.md
+  69595bb4377d0836 10
+web/src/components/playground/ParameterControl.jsx
+  89c3f2ff250d651a 21,43-61,63-84,92-99,102,104-105,111,120-123,125-127,130,132-133,139,148-151,153-155,158,160-161,167,176-183,186,188-189,195,204-206,208-210,213-214,217-218,221,225-226,236-243,251,254,257-258
+web/src/components/playground/MessageContent.jsx
+  89c3f2ff250d651a 21,72,76,78,80-81,85,88-90,94,105,230,233,235,237,239,256,258,260,266,270-272,275,279-282,285,354,357,367
+TODO.md
+  0f998895e7af5b42 137-150
+  89c3f2ff250d651a 1-136
+web/src/hooks/playground/useMessageActions.jsx
+  69595bb4377d0836 23-26,44,52,84,101,171-172,175-178,183-187,193-195,197-198,204,212,246-247
+web/src/components/settings/PaymentSetting.jsx
+  89c3f2ff250d651a 21,158-173,179-180,186-187,193-194,200-201,207-208,214,216-217
+AGENTS.md
+  69595bb4377d0836 10
+web/src/hooks/mj-logs/useMjLogsData.js
+  69595bb4377d0836 263
+web/src/components/table/users/modals/UserBindingManagementModal.jsx
+  89c3f2ff250d651a 30-40,42,58,116,132,139-140,143,162,168,170-171,174,185,193,212,298-303,306-311,313-333,335-341,344-352,361-365,367-426,428-454
+web/src/components/table/channels/modals/CodexOAuthModal.jsx
+  89c3f2ff250d651a 25-34,37-38,55,61,91,97,101,103,117-123,125-135,139-140,142-143,147-149,153,156,158-161,164,167-184
+web/src/components/table/model-pricing/modal/components/FilterModalFooter.jsx
+  89c3f2ff250d651a 21,25-26,29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "cf718343387b1b8ce65e3e1eaa50e652cd35fa93",
+  "prompts": {
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 240,
+      "total_deletions": 209,
+      "accepted_lines": 210,
+      "overriden_lines": 0
+    },
+    "25ef39782a617c8f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cd9bbd82-462b-4feb-a239-7fe35828c0b7",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 74,
+      "total_deletions": 24,
+      "accepted_lines": 86,
+      "overriden_lines": 0
+    },
+    "441936bac2ac66ca": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3e259091-c42c-40ca-bd46-1047bbc5eab7",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 656,
+      "total_deletions": 542,
+      "accepted_lines": 376,
+      "overriden_lines": 0
+    },
+    "69595bb4377d0836": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "eec21003-f633-4b3a-b346-1a41a3392e5f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1834,
+      "total_deletions": 1431,
+      "accepted_lines": 1702,
+      "overriden_lines": 0
+    },
+    "89c3f2ff250d651a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "843ccad5-bde0-4992-8526-a2a84b3abd41",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 15923,
+      "total_deletions": 12678,
+      "accepted_lines": 14358,
+      "overriden_lines": 0
+    }
+  }
+}
