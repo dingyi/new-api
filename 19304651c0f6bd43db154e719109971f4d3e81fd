@@ -1,0 +1,23 @@
+web/src/pages/Setting/Ratio/UpstreamRatioSync.jsx
+  4b659217212e4b81 15-22,24-35,39-42,55-94,96-124,137-140,142,145-220,225-226,237,248,250,335,373-379,381-383,385,460,536-542,546-551,557,560-565,569-576,578-590,599-601,604,609-615,617-629,632-633,635-637,640-642,644-652,654-656,660-662,665-669,671-674,688-696,703-709,713,717-720,723-734,738-744,748-777,781-858,863-884,888-977,981-1020,1023-1042,1066
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "19304651c0f6bd43db154e719109971f4d3e81fd",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 749,
+      "total_deletions": 553,
+      "accepted_lines": 666,
+      "overriden_lines": 0
+    }
+  }
+}
