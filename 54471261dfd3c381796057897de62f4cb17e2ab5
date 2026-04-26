@@ -1,0 +1,23 @@
+web/src/components/table/channels/modals/ModelTestModal.jsx
+  4b659217212e4b81 15,18,20-29,33-70,103-108,179-189,191-198,200-202,204-209,211-221,223,225-230,232-247,251-252,257-272,274,281,283-292,296,299-302,304-369,371-379,381-402,406-505,512-528,532-537,539-541
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "54471261dfd3c381796057897de62f4cb17e2ab5",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 415,
+      "total_deletions": 256,
+      "accepted_lines": 381,
+      "overriden_lines": 0
+    }
+  }
+}
