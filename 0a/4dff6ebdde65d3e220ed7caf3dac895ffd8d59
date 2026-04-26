@@ -1,0 +1,21 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0a4dff6ebdde65d3e220ed7caf3dac895ffd8d59",
+  "prompts": {
+    "9326b869d61f78f5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5fdec621-ea2f-45d5-90a2-d8ded849aaff",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 9311,
+      "total_deletions": 905,
+      "accepted_lines": 9439,
+      "overriden_lines": 90
+    }
+  }
+}
