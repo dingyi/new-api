@@ -1,0 +1,23 @@
+web/src/components/table/model-pricing/view/card/PricingCardView.jsx
+  4b659217212e4b81 22,204
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "57d5e669eecb50a236a259cf82e26ed8c5e68dba",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 5,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
