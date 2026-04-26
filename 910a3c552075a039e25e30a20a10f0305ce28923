@@ -1,0 +1,23 @@
+web/src/components/table/tokens/TokensDescription.jsx
+  c629e88a7dd16364 26,28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "910a3c552075a039e25e30a20a10f0305ce28923",
+  "prompts": {
+    "c629e88a7dd16364": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7ae848e-501a-4f9f-a082-b1396a8725de",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 5,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
