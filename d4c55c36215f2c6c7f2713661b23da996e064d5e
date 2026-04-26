@@ -1,0 +1,23 @@
+web/src/components/table/model-deployments/modals/ViewLogsModal.jsx
+  4b659217212e4b81 22-34,44,55-108,128-134,161-162,272,289,311,416,423-427,429-433,435-473,476-485,489-515,518-519,521-526,528-529,532-556,558-578,580-583,585-599,601-616,618-619,624-653,657-660,662,664-665,670-738,742-749,756-757,760-776,781-784
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "d4c55c36215f2c6c7f2713661b23da996e064d5e",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 435,
+      "total_deletions": 355,
+      "accepted_lines": 403,
+      "overriden_lines": 0
+    }
+  }
+}
