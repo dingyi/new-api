@@ -1,0 +1,23 @@
+web/src/components/settings/personal/components/UserInfoHeader.jsx
+  a197ff7dae68e165 21,28,31,50,65,67-74,78-79,90-93,95-99,101-105,108-112,115,122-132,134-135,138-143,145-149,151-155,160-161,163-164,166,168,170,172-174,176,178-180,182-184,186,188,190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "020c5d06b3b9000297930a071214319f9f251336",
+  "prompts": {
+    "a197ff7dae68e165": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "04780b84-3099-4bbb-9ba6-86e7821ef45f",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 583,
+      "total_deletions": 575,
+      "accepted_lines": 353,
+      "overriden_lines": 0
+    }
+  }
+}
