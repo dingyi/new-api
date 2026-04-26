@@ -1,0 +1,23 @@
+web/src/components/table/model-deployments/modals/ViewDetailsModal.jsx
+  4b659217212e4b81 22-33,45,53-117,119-128,136-141,224-228,230-231,233-248,250-251,256,258,260-268,275-277,284-289,293-296,300-312,316-321,329-335,344-348,352,355-363,365-374,377-378,380-385,387-389,391-397,399-401,403-408,410,413,415-444,446-463,465-466,468-496,500-533,537-561,564-568,570-579,581-588,590-602,605,607-611,613-620,622-628,630-640,645,647-656,658-664
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "3d733c55b86e708852368c764545a750d9740dad",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 512,
+      "total_deletions": 433,
+      "accepted_lines": 450,
+      "overriden_lines": 0
+    }
+  }
+}
