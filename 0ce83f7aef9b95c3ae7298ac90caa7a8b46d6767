@@ -1,0 +1,73 @@
+web/src/components/table/task-logs/modals/ContentModal.jsx
+  008946c50d52096f 80,83,86,89,112
+  4b659217212e4b81 142-143,150,155
+web/src/components/table/tokens/modals/CCSwitchModal.jsx
+  008946c50d52096f 134,142-143,159,191,203,211
+web/src/components/table/usage-logs/modals/UserInfoModal.jsx
+  008946c50d52096f 39,48,61,67-68
+web/src/components/table/model-deployments/modals/EditDeploymentModal.jsx
+  008946c50d52096f 121-122,162,172,183
+web/src/components/table/task-logs/modals/AudioPreviewModal.jsx
+  008946c50d52096f 58,71,82,138-139,144
+web/src/components/table/model-pricing/view/card/PricingCardView.jsx
+  008946c50d52096f 42,92,122,246,306,323
+web/src/components/settings/ChannelSelectorModal.jsx
+  008946c50d52096f 71-72,305
+web/src/components/table/users/modals/UserSubscriptionsModal.jsx
+  008946c50d52096f 43,375,450
+web/src/components/table/tokens/modals/CopyTokensModal.jsx
+  008946c50d52096f 62-63,66,69
+web/src/components/table/users/modals/AddUserModal.jsx
+  008946c50d52096f 108
+web/src/components/table/users/modals/UserBindingManagementModal.jsx
+  008946c50d52096f 185,193,202,212,222,232,242,313-314,376,382
+web/src/components/settings/personal/components/TwoFASetting.jsx
+  4b659217212e4b81 202,213,231,257,273,302,322,347,360,363,410,422,447,484,494-495,569,573,599,632,665,687,692
+web/src/components/settings/personal/cards/AccountManagement.jsx
+  4b659217212e4b81 67,76,83,172,195,198,202,205,232,235,239,242,273,276,280,283,314,317,321,324,355,358,362,365,398,401,405,408,456,473,476,480,483,519,526,529,615,627-628,643,655-656,667,708,729-730,735,748
+  008946c50d52096f 588-589
+web/src/components/table/tokens/index.jsx
+  008946c50d52096f 426,447
+web/src/components/settings/personal/cards/NotificationSettings.jsx
+  4b659217212e4b81 384,550,602-603,606,610,617-618,625,703-704,707,718-719,726,833,873,884
+web/src/components/table/usage-logs/modals/ChannelAffinityUsageCacheModal.jsx
+  4b659217212e4b81 231,240,242,245,252
+  008946c50d52096f 211-212,216
+web/src/components/table/usage-logs/modals/ColumnSelectorModal.jsx
+  008946c50d52096f 74-75,96
+web/src/components/table/usage-logs/UsageLogsTable.jsx
+  008946c50d52096f 86,89,92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0ce83f7aef9b95c3ae7298ac90caa7a8b46d6767",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 74,
+      "total_deletions": 74,
+      "accepted_lines": 69,
+      "overriden_lines": 0
+    },
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 102,
+      "total_deletions": 102,
+      "accepted_lines": 98,
+      "overriden_lines": 0
+    }
+  }
+}
