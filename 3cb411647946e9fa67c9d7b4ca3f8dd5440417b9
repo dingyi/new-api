@@ -1,0 +1,23 @@
+web/src/components/table/channels/modals/ParamOverrideEditorModal.jsx
+  4b659217212e4b81 24-25,31-41,43-49,56-529,531-540
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "3cb411647946e9fa67c9d7b4ca3f8dd5440417b9",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 514,
+      "total_deletions": 5,
+      "accepted_lines": 505,
+      "overriden_lines": 0
+    }
+  }
+}
