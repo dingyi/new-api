@@ -1,0 +1,29 @@
+web/src/pages/Home/index.jsx
+  4b659217212e4b81 156,165,173,178,182,184,244
+web/src/components/auth/AuthLayout.jsx
+  4b659217212e4b81 59,61,70,72,76,89-90,93,114,124,135,148,150,183,200,238,242,248,288,290,296
+web/src/components/layout/NoticeModal.jsx
+  4b659217212e4b81 130,160,184-185,215,231-232,244,254,258-259,268
+web/src/components/layout/Footer.jsx
+  4b659217212e4b81 51,57,65,73,81,89,97,105,113,121,129,137,145,153,161,169,177,189,195,232,236
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "c919dcfd6f3df7eb74ba1d9ad1b37ee283588416",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 61,
+      "total_deletions": 61,
+      "accepted_lines": 61,
+      "overriden_lines": 0
+    }
+  }
+}
