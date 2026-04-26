@@ -1,0 +1,65 @@
+web/src/components/common/ui/CardTable.jsx
+  4b659217212e4b81 105-106,117-118,122,130,192,197,205,207,209,237,254,256
+  008946c50d52096f 146,148,161,167,173
+web/src/components/common/ui/TableEmptyState.jsx
+  4b659217212e4b81 26-27,31,35
+web/src/components/common/ui/TableFilterForm.jsx
+  4b659217212e4b81 110,127,164,171,181
+web/src/components/common/ui/HoverPanel.jsx
+  4b659217212e4b81 83
+web/src/components/table/subscriptions/SubscriptionsColumnDefs.jsx
+  008946c50d52096f 27,53,108,157
+web/src/components/common/ui/RenderUtils.jsx
+  4b659217212e4b81 53
+web/src/components/table/mj-logs/MjLogsColumnDefs.jsx
+  008946c50d52096f 93,124
+web/src/components/common/ui/CardPro.jsx
+  4b659217212e4b81 70,148,159
+web/src/components/table/model-deployments/DeploymentsColumnDefs.jsx
+  008946c50d52096f 68,105,333,436,448
+web/src/components/table/users/UsersColumnDefs.jsx
+  008946c50d52096f 36,38,67,105,119,149,156,168,210,276-277
+web/src/components/table/mj-logs/MjLogsActions.jsx
+  008946c50d52096f 40
+web/src/components/common/ui/ColumnSelectorDialog.jsx
+  4b659217212e4b81 67-68,81
+web/src/components/table/usage-logs/UsageLogsColumnDefs.jsx
+  008946c50d52096f 78
+web/src/components/table/channels/ChannelsColumnDefs.jsx
+  008946c50d52096f 108,112
+web/src/components/common/ui/ConfirmDialog.jsx
+  4b659217212e4b81 55-56,65,68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "9781494c8cb58988a870df6e4bedbc19ab486849",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 32,
+      "total_deletions": 35,
+      "accepted_lines": 31,
+      "overriden_lines": 0
+    },
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 44,
+      "total_deletions": 46,
+      "accepted_lines": 44,
+      "overriden_lines": 0
+    }
+  }
+}
