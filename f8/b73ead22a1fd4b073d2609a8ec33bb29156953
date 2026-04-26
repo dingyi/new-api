@@ -1,0 +1,23 @@
+web/src/components/dashboard/ChartsPanel.jsx
+  cfcccb594ad5e578 78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "f8b73ead22a1fd4b073d2609a8ec33bb29156953",
+  "prompts": {
+    "cfcccb594ad5e578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27c554e5-3819-4006-b861-0069675e5fef",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
