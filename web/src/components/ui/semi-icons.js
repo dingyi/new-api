@@ -58,6 +58,7 @@ import {
   RefreshCw,
   Save,
   Search,
+  Tag as TagIcon,
   Send,
   Server,
   Settings,
@@ -134,6 +135,7 @@ export const IconBolt = withIcon(Bolt);
 export const IconDownload = withIcon(Download);
 export const IconCoinMoneyStroked = withIcon(Wallet);
 export const IconMoneyExchangeStroked = withIcon(Wallet);
+export const IconPriceTag = withIcon(TagIcon);
 export const IconLayers = withIcon(Layers);
 export const IconGift = withIcon(CirclePlus);
 export const IconExternalOpen = withIcon(ExternalLink);
