@@ -1,0 +1,25 @@
+web/src/components/table/model-deployments/modals/UpdateConfigModal.jsx
+  4b659217212e4b81 15,17-27,38,41-45,47-98,104-105,107-114,117-124,129,132-134,139-140,156-171,174-179,186-196,241-248,251,255-257,259-261,264,267,269-271,275-279,281-282,284-285,287-298,300-312,314-335,337-338,341-351,353-363,366-404,406-407,409-417,419-420,423-444,448-488,491-530,532-561,564-568,570,572,574-575,579-582,584-600
+web/src/components/table/model-deployments/modals/ExtendDurationModal.jsx
+  4b659217212e4b81 17-27,36-54,56-57,68,76-81,86,93-107,110-115,257,263-268,275,332,335-338,340-348,350-362,365-376,380-429,432-446,450-452,455-494,498-518,522-560,562-563,565-568,570,572,574-575,577,582,584-600
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "d5109db37b68e1d9b07e3ad4cfcabbc1b2f9af8b",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 801,
+      "total_deletions": 605,
+      "accepted_lines": 756,
+      "overriden_lines": 0
+    }
+  }
+}
