@@ -1,0 +1,59 @@
+web/src/components/playground/SSEViewer.jsx
+  4b659217212e4b81 35,169,224,231,233,281,283,286,303,309,320,322
+web/src/components/dashboard/modals/SearchModal.jsx
+  4b659217212e4b81 55,61-62,93,124
+web/src/components/playground/ChatArea.jsx
+  4b659217212e4b81 82,165,169
+web/src/components/playground/ParameterControl.jsx
+  4b659217212e4b81 68,93,102,121,130,149,158,177,186,205,237
+web/src/components/playground/CustomRequestEditor.jsx
+  4b659217212e4b81 118,198
+web/src/components/setup/components/StepNavigation.jsx
+  4b659217212e4b81 38
+web/src/components/setup/components/steps/UsageModeStep.jsx
+  4b659217212e4b81 81-82,88
+web/src/components/playground/ConfigManager.jsx
+  4b659217212e4b81 127,137,171
+web/src/components/setup/components/steps/AdminStep.jsx
+  4b659217212e4b81 46,57,97,138-139,142
+web/src/components/setup/components/steps/CompleteStep.jsx
+  4b659217212e4b81 76,93,95,99
+web/src/components/playground/MessageActions.jsx
+  4b659217212e4b81 62,77,96,123,146
+web/src/components/playground/DebugPanel.jsx
+  4b659217212e4b81 142-143,164-165
+web/src/components/setup/SetupWizard.jsx
+  4b659217212e4b81 262
+web/src/components/setup/components/steps/DatabaseStep.jsx
+  4b659217212e4b81 79,93,100,109,128,142-143,146
+web/src/components/playground/SettingsPanel.jsx
+  4b659217212e4b81 121,153,209
+web/src/components/layout/headerbar/ThemeToggle.jsx
+  4b659217212e4b81 100,109,118,122,127,135
+web/src/components/playground/CustomInputRender.jsx
+  4b659217212e4b81 93,125
+web/src/components/model-deployments/DeploymentAccessGuard.jsx
+  4b659217212e4b81 45,48,61,63,69,72,77,79,82,89-90,95-96,113,125,128,148,150,156,159,163
+web/src/components/playground/ImageUrlInput.jsx
+  4b659217212e4b81 56,96,102,108
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "a628d89c1c9fbf6b14b6bcc05685be35089a7f45",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 108,
+      "total_deletions": 108,
+      "accepted_lines": 104,
+      "overriden_lines": 0
+    }
+  }
+}
