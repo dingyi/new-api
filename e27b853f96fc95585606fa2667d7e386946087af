@@ -1,0 +1,37 @@
+TODO.md
+  008946c50d52096f 160-174
+web/src/i18n/locales/ja.json
+  008946c50d52096f 1571-1572
+web/src/i18n/locales/vi.json
+  008946c50d52096f 1572-1573
+web/src/i18n/locales/zh-CN.json
+  008946c50d52096f 1558-1559
+web/src/i18n/locales/ru.json
+  008946c50d52096f 1618-1619
+web/src/i18n/locales/fr.json
+  008946c50d52096f 1600-1601
+web/src/i18n/locales/zh-TW.json
+  008946c50d52096f 1568-1569
+web/src/i18n/locales/en.json
+  008946c50d52096f 1596-1597
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "e27b853f96fc95585606fa2667d7e386946087af",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 29,
+      "total_deletions": 0,
+      "accepted_lines": 29,
+      "overriden_lines": 0
+    }
+  }
+}
