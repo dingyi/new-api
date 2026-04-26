@@ -1,0 +1,35 @@
+web/src/components/dashboard/FaqPanel.jsx
+  cfcccb594ad5e578 21-22,35-39,41-42,78-79
+web/src/components/dashboard/UptimePanel.jsx
+  cfcccb594ad5e578 22,39-43,54-56,119,121-122,124,126,128-129,131
+web/src/components/dashboard/StatsCards.jsx
+  cfcccb594ad5e578 21-22,40,42,44-47,51,54,56,62,64,75,85,95-96
+web/src/components/dashboard/ChartsPanel.jsx
+  cfcccb594ad5e578 21-22,55-56,58-62,68,75-78,87-88
+web/src/components/dashboard/AnnouncementsPanel.jsx
+  cfcccb594ad5e578 22,27-36,45-49,54-65,73,109-110
+TODO.md
+  cfcccb594ad5e578 281-337
+web/src/components/dashboard/ApiInfoPanel.jsx
+  cfcccb594ad5e578 22,36-40,42-43,77-89,91-96,99,121-122
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "f54cb30aab58e4a891efa50d927d2e249c493f5f",
+  "prompts": {
+    "cfcccb594ad5e578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27c554e5-3819-4006-b861-0069675e5fef",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 319,
+      "total_deletions": 287,
+      "accepted_lines": 180,
+      "overriden_lines": 0
+    }
+  }
+}
