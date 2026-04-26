@@ -1,0 +1,23 @@
+web/src/components/dashboard/UptimePanel.jsx
+  cfcccb594ad5e578 44-47,54,56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "3721de708ec35a4af81dc6aaf946805818180c84",
+  "prompts": {
+    "cfcccb594ad5e578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27c554e5-3819-4006-b861-0069675e5fef",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 4,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
