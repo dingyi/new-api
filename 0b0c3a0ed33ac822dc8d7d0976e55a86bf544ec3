@@ -1,0 +1,25 @@
+web/src/components/table/mj-logs/MjLogsActions.jsx
+  c629e88a7dd16364 38,40,46
+web/src/components/table/mj-logs/index.jsx
+  c629e88a7dd16364 41,43,58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0b0c3a0ed33ac822dc8d7d0976e55a86bf544ec3",
+  "prompts": {
+    "c629e88a7dd16364": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7ae848e-501a-4f9f-a082-b1396a8725de",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 26,
+      "total_deletions": 34,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
