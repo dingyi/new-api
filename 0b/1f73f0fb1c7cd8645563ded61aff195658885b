@@ -1,0 +1,117 @@
+web/src/components/dashboard/ChartsPanel.jsx
+  cfcccb594ad5e578 21-22,55-56,58-62,64,76-78,87-88
+  69595bb4377d0836 42-53,57,80-86
+web/src/components/dashboard/ApiInfoPanel.jsx
+  cfcccb594ad5e578 22,36-40,42-44,77-89,91-96,99,104,106-107,110,117-119,121-122
+TODO.md
+  0f998895e7af5b42 145-161,177-179
+  89c3f2ff250d651a 1-75,80-140
+  cfcccb594ad5e578 281-337
+  4b659217212e4b81 76-79,141-144
+  008946c50d52096f 162-176,180-280
+web/src/components/dashboard/FaqPanel.jsx
+  cfcccb594ad5e578 21-22,27-30,32-33,35-39,41-42,62-64,66-72,74-75,78-79
+  0f998895e7af5b42 45,47-61,77
+web/src/components/dashboard/DashboardHeader.jsx
+  0f998895e7af5b42 21,35,44-46,48-49,51,53-56,58-61
+  cfcccb594ad5e578 40-42,47,57
+web/src/components/dashboard/index.jsx
+  cfcccb594ad5e578 187,222
+web/src/components/dashboard/UptimePanel.jsx
+  69595bb4377d0836 58-62,69-72,74,76,80,83-84,86,89,91-95,99,116
+  cfcccb594ad5e578 22,39-43,51,53-56,104-105,108,115,119,121-122,124,126,128-129,131
+web/src/components/dashboard/StatsCards.jsx
+  cfcccb594ad5e578 21-22,38,40,42,44-47,51,54,56,62,64,75,77,85,95-96
+  0f998895e7af5b42 57,60,63,65-67,69,74,76,78,81
+web/src/helpers/dashboard.jsx
+  cfcccb594ad5e578 134-136,138-140
+  008946c50d52096f 179,184,199,207,211,216,221,241,244
+web/src/components/dashboard/AnnouncementsPanel.jsx
+  cfcccb594ad5e578 22,27-36,45-49,54-65,73,94-95,98,105-106,109-110
+  0f998895e7af5b42 85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0b1f73f0fb1c7cd8645563ded61aff195658885b",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 7,
+      "accepted_lines": 125,
+      "overriden_lines": 0
+    },
+    "0f998895e7af5b42": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "863b3523-518f-4c79-bbde-7d3f8bc2d9d5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 7,
+      "accepted_lines": 65,
+      "overriden_lines": 0
+    },
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 5,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    },
+    "69595bb4377d0836": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "eec21003-f633-4b3a-b346-1a41a3392e5f",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1834,
+      "total_deletions": 1431,
+      "accepted_lines": 43,
+      "overriden_lines": 0
+    },
+    "89c3f2ff250d651a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "843ccad5-bde0-4992-8526-a2a84b3abd41",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 15923,
+      "total_deletions": 12678,
+      "accepted_lines": 136,
+      "overriden_lines": 0
+    },
+    "cfcccb594ad5e578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27c554e5-3819-4006-b861-0069675e5fef",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 21,
+      "total_deletions": 13,
+      "accepted_lines": 230,
+      "overriden_lines": 0
+    }
+  }
+}
