@@ -1,0 +1,27 @@
+web/src/components/table/channels/modals/CodexUsageModal.jsx
+  4b659217212e4b81 17-26,28,31-40,42-54,62-64,66-68,71-89,202,223,226,228,231,237-238,240,247-250,256,258,270,272-273,276,280-281,284,287,303,305,314,330,335,338,342,344,346,349,353-356,362-363,365,368,370-373,375-378,380,383-384,387,395,398-399,416-421,423-430,433-437,442,445-446,449,451,502-504,512,515-519,537-541,544-545,548-552,554-568,572-590,592-593
+web/src/components/table/channels/index.jsx
+  4b659217212e4b81 36,76-82
+web/src/hooks/channels/useChannelsData.jsx
+  4b659217212e4b81 40-42,122-134,772-773,1197-1203
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "4e963c4bb0bb986bbe2ea2de5d0309c11844dd53",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 257,
+      "total_deletions": 147,
+      "accepted_lines": 230,
+      "overriden_lines": 0
+    }
+  }
+}
