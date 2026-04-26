@@ -1,0 +1,25 @@
+web/src/components/table/task-logs/TaskLogsActions.jsx
+  c629e88a7dd16364 26,28
+web/src/components/table/task-logs/index.jsx
+  c629e88a7dd16364 54,56,71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "ec88016bd3fab7fa8f12f82f3c08965caeca605f",
+  "prompts": {
+    "c629e88a7dd16364": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7ae848e-501a-4f9f-a082-b1396a8725de",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 21,
+      "total_deletions": 24,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
