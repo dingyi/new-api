@@ -1,0 +1,23 @@
+web/src/components/table/channels/modals/OllamaModelModal.jsx
+  4b659217212e4b81 15,20-30,32-38,46,50-53,55-84,99,101,104,112,118,122,125,131,185-198,201,206,209,256,277,288,318,328,369,397,441,446-447,466,470,482,494-499,502-506,508-516,520-526,528,530-534,539,541-578,580,582-605,607-617,619-621,623-659,661-669,671-672,675-692,696-746,748-755,757-782
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "3611c1a0d86f211cec6b7c78cb741948b7b50e77",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 375,
+      "total_deletions": 352,
+      "accepted_lines": 357,
+      "overriden_lines": 0
+    }
+  }
+}
