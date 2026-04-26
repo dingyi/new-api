@@ -1,0 +1,25 @@
+web/src/components/settings/personal/cards/AccountManagement.jsx
+  a197ff7dae68e165 29,269-271,276-277,280-282,284-286
+web/src/components/settings/personal/cards/NotificationSettings.jsx
+  a197ff7dae68e165 16-17,20,491-493,496,499-500,503,505,513-514,519,522-523,525,527,766-773,775,777,780-792,794,796-797,800-801,803-805
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "73c88210b626216c3afb4efdc4761dda1d2d931b",
+  "prompts": {
+    "a197ff7dae68e165": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "04780b84-3099-4bbb-9ba6-86e7821ef45f",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 148,
+      "total_deletions": 147,
+      "accepted_lines": 117,
+      "overriden_lines": 0
+    }
+  }
+}
