@@ -1,0 +1,23 @@
+web/src/pages/Setting/Payment/SettingsPaymentGatewayWaffo.jsx
+  4b659217212e4b81 15-16,18-30,40-44,46-108,123-124,129,132-135,142-152,172,189-190,196,199-200,218,253-255,278,283,338,341,344-348,350-354,360,367,371-375,377-384,386-390,392-398,400-403,405,407-415,417-429,431-434,436-438,440-446,449,451,453,455-464,466-467,469,471-481,483-484,486-490,492-498,500,503-548,550-564,566-568,570-576,578-579,581-583,586-591,595-667,672-675,679-691,693-731,735-738,743-831,833
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "cb2602fe4d336316eefbfe8cf1a82ddbeb6ca7ac",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 634,
+      "total_deletions": 489,
+      "accepted_lines": 548,
+      "overriden_lines": 0
+    }
+  }
+}
