@@ -1,0 +1,40 @@
+web/src/components/table/tokens/TokensFilters.jsx
+  c629e88a7dd16364 76,86
+web/src/components/table/tokens/TokensActions.jsx
+  c629e88a7dd16364 67,81,90
+web/src/index.css
+  c629e88a7dd16364 166-172,178
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "e01ca42f309d69035181859f7e3d430bd55a7444",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1311,
+      "total_deletions": 914,
+      "accepted_lines": 1236,
+      "overriden_lines": 0
+    },
+    "c629e88a7dd16364": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7ae848e-501a-4f9f-a082-b1396a8725de",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 10,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    }
+  }
+}
