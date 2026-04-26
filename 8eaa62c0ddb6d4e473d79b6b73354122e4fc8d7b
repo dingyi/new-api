@@ -1,0 +1,23 @@
+web/src/components/layout/headerbar/ThemeToggle.jsx
+  008946c50d52096f 106-111,115,124
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "8eaa62c0ddb6d4e473d79b6b73354122e4fc8d7b",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 5,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  }
+}
