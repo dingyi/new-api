@@ -1,0 +1,23 @@
+web/src/components/dashboard/ApiInfoPanel.jsx
+  cfcccb594ad5e578 42-51,109-110,112,124-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "b7eabc69c5dd1fb69d3ef5881279ba37b4917ff8",
+  "prompts": {
+    "cfcccb594ad5e578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "27c554e5-3819-4006-b861-0069675e5fef",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 21,
+      "total_deletions": 13,
+      "accepted_lines": 15,
+      "overriden_lines": 0
+    }
+  }
+}
