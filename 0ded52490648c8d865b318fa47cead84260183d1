@@ -1,0 +1,23 @@
+web/src/components/table/channels/modals/EditChannelModal.jsx
+  4b659217212e4b81 21-23,25,27,40-67,84,92-1565,5404-5407
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0ded52490648c8d865b318fa47cead84260183d1",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1517,
+      "total_deletions": 17,
+      "accepted_lines": 1513,
+      "overriden_lines": 0
+    }
+  }
+}
