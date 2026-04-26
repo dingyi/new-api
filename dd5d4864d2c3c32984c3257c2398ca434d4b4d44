@@ -1,0 +1,23 @@
+web/src/components/table/model-deployments/DeploymentsColumnDefs.jsx
+  4b659217212e4b81 22,24,48-70,75,80,85,90,95,100,105,110,115,120,127,170-171,175,183-185,191-193,198-200,213,215,219-220,233-235,238,241,256,262-263,268,322,327,375,377,379,381,385,417-419,452-453,457-458,465-466,473-474,480-481,488-490,496-498,504-506,514-516,527-530,538-546,550-554,558-563,566-570,573-577,580-581,590-594,597-598,600,602-608,614-619,625-628,630-633,635-639
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "dd5d4864d2c3c32984c3257c2398ca434d4b4d44",
+  "prompts": {
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 168,
+      "total_deletions": 223,
+      "accepted_lines": 163,
+      "overriden_lines": 0
+    }
+  }
+}
