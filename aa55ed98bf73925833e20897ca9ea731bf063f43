@@ -1,0 +1,29 @@
+web/src/components/common/ui/TableEmptyState.jsx
+  c629e88a7dd16364 22,24,26-37
+web/src/components/table/tokens/TokensActions.jsx
+  c629e88a7dd16364 64,67,81,90
+web/src/components/table/tokens/index.jsx
+  c629e88a7dd16364 360,370
+web/src/components/table/tokens/TokensFilters.jsx
+  c629e88a7dd16364 52,54-55,63,71,76,86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "aa55ed98bf73925833e20897ca9ea731bf063f43",
+  "prompts": {
+    "c629e88a7dd16364": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7ae848e-501a-4f9f-a082-b1396a8725de",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 28,
+      "total_deletions": 27,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  }
+}
