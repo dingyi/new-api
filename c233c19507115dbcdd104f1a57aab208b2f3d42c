@@ -1,0 +1,70 @@
+web/src/components/topup/modals/PaymentConfirmModal.jsx
+  008946c50d52096f 97-98,105,135,162,184,187
+web/src/components/common/ui/ClickMenu.jsx
+  4b659217212e4b81 70
+web/src/components/topup/SubscriptionPlansCard.jsx
+  008946c50d52096f 421,426,437,444,472,565,627
+web/src/components/common/markdown/MarkdownRenderer.jsx
+  4b659217212e4b81 245
+web/src/components/common/modals/RiskAcknowledgementModal.jsx
+  4b659217212e4b81 116-117,133,141,160,182
+web/src/components/common/ui/ColumnSelectorDialog.jsx
+  4b659217212e4b81 95
+web/src/components/common/ui/SelectableButtonGroup.jsx
+  4b659217212e4b81 121,165,192,212-213,219,237,247
+web/src/components/common/modals/SecureVerificationModal.jsx
+  4b659217212e4b81 100,107,110,131,137
+  008946c50d52096f 166,193,196
+web/src/components/topup/index.jsx
+  008946c50d52096f 931-932,935
+web/src/components/topup/modals/TopupHistoryModal.jsx
+  008946c50d52096f 283-284,290,300,305,313,322,325,335-337,346,350,353,371
+web/src/components/common/ui/ChannelKeyDisplay.jsx
+  4b659217212e4b81 124,129,148,152,173-174,180
+web/src/components/topup/RechargeCard.jsx
+  008946c50d52096f 521,524,527
+web/src/components/common/ui/JSONEditor.jsx
+  4b659217212e4b81 41,47,53,398,472,639-640
+  008946c50d52096f 707-708,710
+web/src/components/topup/InvitationCard.jsx
+  008946c50d52096f 43,174,182,189,196
+web/src/components/topup/modals/SubscriptionPurchaseModal.jsx
+  008946c50d52096f 87-88,97,104,119,136,157,198,235,238
+web/src/components/topup/modals/TransferModal.jsx
+  008946c50d52096f 57-58,83
+web/src/components/common/DocumentRenderer/index.jsx
+  4b659217212e4b81 149,154,165,168,171,193,195-196,211,213-214
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "c233c19507115dbcdd104f1a57aab208b2f3d42c",
+  "prompts": {
+    "008946c50d52096f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ec9eb68-c582-4e2c-b960-e38240b84951",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 60,
+      "total_deletions": 60,
+      "accepted_lines": 59,
+      "overriden_lines": 0
+    },
+    "4b659217212e4b81": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4e58abb4-8d98-404c-b199-69814a8712b1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 49,
+      "total_deletions": 49,
+      "accepted_lines": 47,
+      "overriden_lines": 0
+    }
+  }
+}
