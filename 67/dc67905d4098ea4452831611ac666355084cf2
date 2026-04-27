@@ -1,0 +1,23 @@
+web/src/pages/Setting/Ratio/ToolPriceSettings.jsx
+  0d7783c309d752a2 20-21,25-26,59-67,159,162-163,166,169-171,175,180,182-194,197-202,205-206,210-256,258-261,263-280,283,292-294,296-299,301-303,305,308,315,317-320
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "67dc67905d4098ea4452831611ac666355084cf2",
+  "prompts": {
+    "0d7783c309d752a2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e822c123-5794-4238-ace1-5f8c15bfe332",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 161,
+      "total_deletions": 121,
+      "accepted_lines": 134,
+      "overriden_lines": 0
+    }
+  }
+}
