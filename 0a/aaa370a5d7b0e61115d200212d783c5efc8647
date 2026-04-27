@@ -1,0 +1,39 @@
+web/src/pages/Setting/Performance/SettingsPerformance.jsx
+  0d7783c309d752a2 26,621-622
+web/src/components/table/channels/modals/ModelTestModal.jsx
+  0d7783c309d752a2 31,272
+web/src/components/settings/personal/cards/CheckinCalendar.jsx
+  0d7783c309d752a2 45,373-374
+web/src/components/table/channels/modals/MultiKeyManageModal.jsx
+  0d7783c309d752a2 38,513-514
+web/src/components/table/tokens/index.jsx
+  0d7783c309d752a2 32,467
+web/src/components/common/ui/buttonTones.js
+  0d7783c309d752a2 1-45
+web/src/components/table/users/modals/UserSubscriptionsModal.jsx
+  0d7783c309d752a2 28,322
+web/src/components/table/users/UsersColumnDefs.jsx
+  0d7783c309d752a2 24,376
+web/src/pages/Setting/Operation/SettingsChannelAffinity.jsx
+  0d7783c309d752a2 55,883
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "0aaaa370a5d7b0e61115d200212d783c5efc8647",
+  "prompts": {
+    "0d7783c309d752a2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e822c123-5794-4238-ace1-5f8c15bfe332",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 65,
+      "total_deletions": 10,
+      "accepted_lines": 64,
+      "overriden_lines": 0
+    }
+  }
+}
