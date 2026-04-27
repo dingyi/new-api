@@ -1,0 +1,25 @@
+web/TODO.md
+  0d7783c309d752a2 1-97
+web/package.json
+  0d7783c309d752a2 8-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "b41370eef05cb871a671f7ac0bbc96050a9ad05f",
+  "prompts": {
+    "0d7783c309d752a2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e822c123-5794-4238-ace1-5f8c15bfe332",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 100,
+      "total_deletions": 3,
+      "accepted_lines": 100,
+      "overriden_lines": 0
+    }
+  }
+}
