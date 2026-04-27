@@ -1,0 +1,49 @@
+web/src/components/layout/Footer.jsx
+  0720ff3849ca9294 22,26-60,64-78,89,101-179,184,186,188-191,194,196-200,202-207,211-218,220-222,224-236
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "c1642733f7dd9c557fc3b097098e4cef80cf14be",
+  "prompts": {
+    "0720ff3849ca9294": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e5f6d6ab-fc8c-4944-828b-4d1600468f41",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 272,
+      "total_deletions": 288,
+      "accepted_lines": 175,
+      "overriden_lines": 0
+    },
+    "a70c110a86bafc16": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "18e0fcdf-4062-400b-8b78-a0ff2ded1b42",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 1438,
+      "total_deletions": 1014,
+      "accepted_lines": 1219,
+      "overriden_lines": 0
+    },
+    "aa7f20bcd48bdf27": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "11d51cd5-2c57-4b7f-8484-905717b51332",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 398,
+      "total_deletions": 259,
+      "accepted_lines": 212,
+      "overriden_lines": 1
+    }
+  }
+}
