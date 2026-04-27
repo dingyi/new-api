@@ -1,0 +1,23 @@
+web/src/components/table/model-pricing/modal/components/DynamicPricingBreakdown.jsx
+  0d7783c309d752a2 21-22,44,46-67,72-73,127-134,138-140,142,144-146,151-155,159-160,162,164-165,172-173,175-225,230-231,233,237,239,241-242
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "910d36b355938a56e10f7d8dec26f953aa4aafe9",
+  "prompts": {
+    "0d7783c309d752a2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e822c123-5794-4238-ace1-5f8c15bfe332",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 127,
+      "total_deletions": 89,
+      "accepted_lines": 113,
+      "overriden_lines": 0
+    }
+  }
+}
