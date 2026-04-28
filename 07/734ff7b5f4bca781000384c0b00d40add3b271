@@ -1,0 +1,27 @@
+web/src/components/common/modals/SecureVerificationModal.jsx
+  91dddfc9361e3695 150-151,156-157
+web/src/components/layout/NoticeModal.jsx
+  91dddfc9361e3695 26,31,40,186-195,197-206,212,215,218,221,223-224,226-227,229-230,235,247-249
+web/src/components/common/ui/JSONEditor.jsx
+  91dddfc9361e3695 654-655,658-659
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "07734ff7b5f4bca781000384c0b00d40add3b271",
+  "prompts": {
+    "91dddfc9361e3695": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bac83db2-5ddf-42c7-b81b-6184fa591bcd",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 87,
+      "total_deletions": 57,
+      "accepted_lines": 45,
+      "overriden_lines": 0
+    }
+  }
+}
