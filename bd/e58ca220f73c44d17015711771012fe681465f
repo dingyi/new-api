@@ -1,0 +1,23 @@
+web/src/components/layout/NoticeModal.jsx
+  91dddfc9361e3695 186,191,231
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "bde58ca220f73c44d17015711771012fe681465f",
+  "prompts": {
+    "91dddfc9361e3695": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bac83db2-5ddf-42c7-b81b-6184fa591bcd",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 3,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}
