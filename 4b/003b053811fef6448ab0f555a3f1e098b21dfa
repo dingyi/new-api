@@ -1,0 +1,23 @@
+web/src/components/common/ui/TableFilterForm.jsx
+  7991d14af0eb4189 256-258,262,266
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "4b003b053811fef6448ab0f555a3f1e098b21dfa",
+  "prompts": {
+    "7991d14af0eb4189": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cf51c242-50f4-4631-b8b3-f791cdb1202e",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 3,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
