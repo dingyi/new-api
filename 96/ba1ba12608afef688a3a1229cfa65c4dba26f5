@@ -1,0 +1,25 @@
+TODO.md
+  c0f33899bc7de144 471-481
+web/classic/src/helpers/render.jsx
+  c0f33899bc7de144 3340-3392,3433,3439-3442,3446-3456,3484,3486-3489,3500-3506
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "96ba1ba12608afef688a3a1229cfa65c4dba26f5",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 94,
+      "total_deletions": 11,
+      "accepted_lines": 92,
+      "overriden_lines": 0
+    }
+  }
+}
