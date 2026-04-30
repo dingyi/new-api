@@ -39,8 +39,18 @@ import { Button, Meter, Tooltip } from '@heroui/react';
 import { MoreHorizontal } from 'lucide-react';
 import HoverPanel from '@/components/common/ui/HoverPanel';
 import ClickMenu from '@/components/common/ui/ClickMenu';
-import { renderGroup, renderNumber, renderQuota } from '../../../helpers';
+import {
+  renderGroup,
+  renderNumber,
+  renderQuota,
+  timestamp2string,
+} from '../../../helpers';
 import { warningGhostButtonClass } from '../../common/ui/buttonTones';
+
+// Treat 0 / missing timestamps as "never" — matches the backend default
+// (`last_login_at = 0` for users that haven't logged in since the column
+// was added).
+const renderTimestamp = (ts) => (ts ? timestamp2string(ts) : '-');
 
 const TONE_CLASSES = {
   blue: 'bg-sky-100 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300',
@@ -383,6 +393,16 @@ export const getUsersColumns = ({
       title: t('邀请信息'),
       dataIndex: 'invite',
       render: (text, record) => renderInviteInfo(text, record, t),
+    },
+    {
+      title: t('创建时间'),
+      dataIndex: 'created_at',
+      render: (text) => renderTimestamp(text),
+    },
+    {
+      title: t('最后登录'),
+      dataIndex: 'last_login_at',
+      render: (text) => renderTimestamp(text),
     },
     {
       title: '',

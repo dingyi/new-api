@@ -3998,6 +3998,7 @@
     "问答已添加，请及时点击\"保存设置\"进行保存": "问答已添加，请及时点击\"保存设置\"进行保存",
     "需要包含事件：checkout.session.completed 和 checkout.session.expired": "需要包含事件：checkout.session.completed 和 checkout.session.expired",
     "页": "页",
-    "默认使用 USD 结算": "默认使用 USD 结算"
+    "默认使用 USD 结算": "默认使用 USD 结算",
+    "最后登录": "最后登录"
   }
 }

@@ -465,9 +465,13 @@ those same files but were **not** auto-ported — port them on demand:
   as long as we keep both frontends bundled.
 - [ ] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
   Update `web/classic/src/components/table/channels/modals/ModelSelectModal.jsx`.
-- [ ] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
-  Update `web/classic/src/components/table/users/UsersColumnDefs.jsx`
-  and the corresponding render helpers in `helpers/render.jsx`.
+- [x] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
+  Backend already merged (`model/user.go` + `controller/user.go`).
+  Added two columns to `UsersColumnDefs.jsx` between 邀请信息 and the
+  operate column, rendering via a local `renderTimestamp(ts)` that
+  treats `0` / missing as `-` (so users that haven't logged in since
+  the column was added don't show 1970). New i18n key `最后登录` added
+  to all 8 locale files (`创建时间` was already present).
 - [x] **Tiered-billing Base64 decode + label fixes** (`938dc9522`,
   `9f8a4ec05`). Ported the three logical fixes to
   `web/classic/src/helpers/render.jsx`:
