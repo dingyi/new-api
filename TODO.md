@@ -489,11 +489,15 @@ those same files but were **not** auto-ported — port them on demand:
   unmatched logs render as `阶梯计费（未匹配到对应阶梯）` instead of
   showing fabricated unit prices. Cache-token filter (`9f8a4ec05`)
   hides cache-related price rows when no cache tokens were used.
-- [ ] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
-  `cc4ad6c39`). Big upstream-side refactor of
-  `pages/Setting/Ratio/UpstreamRatioSync.jsx` (8 hunks, including a
-  ~426-line additions block). Consider porting only the new endpoint
-  shapes/options needed, not the Semi-era UI.
+- [~] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
+  `cc4ad6c39`). **Backend portion already absorbed by the merge** —
+  `controller/ratio_sync.go` (+161/-46), `controller/channel_upstream_update.go`,
+  `setting/billing_setting/tiered_billing.go`, `setting/ratio_setting/model_ratio.go`
+  all carry the new pricing-endpoint sync logic. **Frontend portion deferred to a
+  separate PR**: upstream's `UpstreamRatioSync.jsx` rewrite is ~667 lines on the
+  Semi stack (new feedback, loading states, expression-priority resolution UI);
+  needs a from-scratch HeroUI implementation. Don't try to merge it into the
+  v1.0 sync PR — keeps the diff reviewable.
 - [ ] Decide longer-term whether `web/default/` is maintained against
   upstream verbatim, forked, or removed entirely. Today it is a bundled
   but unmaintained-by-this-fork dependency.
