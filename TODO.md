@@ -459,10 +459,18 @@ those same files but were **not** auto-ported — port them on demand:
   the existing shared `ConfirmDialog` component instead of Semi
   `Modal.confirm`. Button rendered in the 系统信息 card next to 检查更新
   with `variant='tertiary'` so it reads as a secondary action.
-- [ ] **Reverse switcher in `web/default`** — once a user is on the new
-  frontend they currently have no in-UI way back to classic. Should add
-  the symmetric switcher there (or in the user dropdown / theme picker)
-  as long as we keep both frontends bundled.
+- [x] **Reverse switcher in `web/default`** — already present.
+  `web/default/src/features/system-settings/general/system-info-section.tsx`
+  exposes `theme.frontend` as a Select (default / classic) on the
+  System Information settings page. Saving immediately switches; next
+  page load serves the matching bundle.
+
+  Cosmetic gap (not a feature gap): the classic side has a prominent
+  one-click button on the 系统信息 card while default's switch lives
+  inside a longer settings form, so discoverability is asymmetric.
+  Deliberately NOT polishing this — touching `web/default` widgets
+  risks future sync conflicts and contradicts the "don't deep-maintain
+  web/default" stance below.
 - [x] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
   EditChannelModal already passed `redirectSourceModels` (the merge
   picked up that side automatically since EditChannelModal had no
