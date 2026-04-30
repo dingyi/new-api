@@ -1,0 +1,23 @@
+TODO.md
+  c0f33899bc7de144 462-473
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "6fc68c708d90da1d9f1ad1c362df8383674d898b",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 4,
+      "accepted_lines": 12,
+      "overriden_lines": 0
+    }
+  }
+}
