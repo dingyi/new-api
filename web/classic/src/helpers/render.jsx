@@ -3337,6 +3337,59 @@ function parseTierBody(bodyStr) {
   return tier;
 }
 
+// UTF-8 aware base64 decoder. Plain `atob` interprets bytes as Latin-1 and
+// silently corrupts any non-ASCII payload (Chinese tier labels, expression
+// comments, etc.). Mirrors upstream 938dc9522. Returns empty string on any
+// decode error so legacy logs without expr_b64 still render gracefully.
+function decodeBillingExprB64(exprB64) {
+  if (!exprB64) return '';
+  try {
+    const binaryString = atob(exprB64);
+    const bytes = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    if (typeof TextDecoder !== 'undefined') {
+      return new TextDecoder().decode(bytes);
+    }
+    return decodeURIComponent(
+      Array.prototype.map
+        .call(bytes, (byte) => '%' + byte.toString(16).padStart(2, '0'))
+        .join(''),
+    );
+  } catch {
+    return '';
+  }
+}
+
+// Tier labels in user-authored expressions and the labels stored in logs can
+// drift in spacing, casing, and full/half-width comparison glyphs. Normalise
+// before equality compare. Order matters in the regex: two-char operators
+// (`<=`, `>=`) must come before their one-char prefixes or the engine will
+// match the prefix first and leave a stray `=`.
+function normalizeTierLabel(label) {
+  if (!label) return '';
+  return label
+    .replace(/<[=＝]?|≤|＜[=＝]?/g, '<')
+    .replace(/>[=＝]?|≥|＞[=＝]?/g, '>')
+    .replace(/\s+/g, '')
+    .toLowerCase();
+}
+
+// Strict tier resolution: return the parsed tier whose label matches the
+// log's `matched_tier`, otherwise null. Deliberately does NOT fall back to
+// `tiers[0]` — guessing a tier means displaying made-up unit prices, which
+// is worse than refusing to render.
+function resolveMatchedTier(tiers, matchedLabel) {
+  if (!tiers || tiers.length === 0) return null;
+  if (!matchedLabel) return null;
+  const target = normalizeTierLabel(matchedLabel);
+  if (!target) return null;
+  return (
+    tiers.find((t) => normalizeTierLabel(t.label) === target) || null
+  );
+}
+
 export function parseTiersFromExpr(exprStr) {
   if (!exprStr) return [];
   try {
@@ -3377,18 +3430,31 @@ export function renderTieredModelPrice(opts) {
     cache_creation_tokens_5m: cacheCreationTokens5m = 0,
     cache_creation_tokens_1h: cacheCreationTokens1h = 0,
   } = opts;
-  let exprStr = '';
-  try { exprStr = atob(exprB64); } catch { /* ignore */ }
+  const exprStr = decodeBillingExprB64(exprB64);
   const tiers = parseTiersFromExpr(exprStr);
   if (tiers.length === 0) {
     return i18next.t('阶梯计费（表达式解析失败）');
   }
 
-  const tier = tiers.find((t) => t.label === matchedTier) || tiers[0];
+  const tier = resolveMatchedTier(tiers, matchedTier);
+  if (!tier) {
+    return i18next.t('阶梯计费（未匹配到对应阶梯）');
+  }
   const { symbol, rate } = getCurrencyConfig();
   const gr = groupRatio || 1;
 
-  const priceLines = BILLING_PRICING_VARS.map((v) => [v.field, v.label]);
+  // Cache-related price rows are noisy when the request never used cache;
+  // hide them unless at least one cache-token field is non-zero. Mirrors
+  // upstream 9f8a4ec05.
+  const hasAnyCacheTokens =
+    cacheTokens > 0 ||
+    cacheCreationTokens > 0 ||
+    cacheCreationTokens5m > 0 ||
+    cacheCreationTokens1h > 0;
+
+  const priceLines = BILLING_PRICING_VARS
+    .filter((v) => v.group !== 'cache' || hasAnyCacheTokens)
+    .map((v) => [v.field, v.label]);
 
   const lines = [
     buildBillingText('命中档位：{{tier}}', { tier: matchedTier || tier.label }),
@@ -3415,10 +3481,12 @@ export function renderTieredModelPriceSimple(opts) {
     displayMode = 'price',
     outputMode = 'segments',
   } = opts;
-  let exprStr = '';
-  try { exprStr = atob(exprB64); } catch { /* ignore */ }
+  const exprStr = decodeBillingExprB64(exprB64);
   const tiers = parseTiersFromExpr(exprStr);
-  const tier = tiers.find((t) => t.label === matchedTier) || tiers[0];
+  // null when matched_tier doesn't line up with any parsed label — the
+  // `if (tier && ...)` guard below skips the price segments rather than
+  // displaying tiers[0]'s prices that don't actually apply to this row.
+  const tier = resolveMatchedTier(tiers, matchedTier);
 
   if (outputMode === 'segments') {
     const segments = [
@@ -3429,7 +3497,14 @@ export function renderTieredModelPriceSimple(opts) {
     ];
 
     if (tier && isPriceDisplayMode(displayMode)) {
-      const priceSegments = BILLING_PRICING_VARS.map((v) => [v.field, v.shortLabel]);
+      const hasAnyCacheTokens =
+        cacheTokens > 0 ||
+        cacheCreationTokens > 0 ||
+        cacheCreationTokens5m > 0 ||
+        cacheCreationTokens1h > 0;
+      const priceSegments = BILLING_PRICING_VARS
+        .filter((v) => v.group !== 'cache' || hasAnyCacheTokens)
+        .map((v) => [v.field, v.shortLabel]);
       for (const [field, label] of priceSegments) {
         if (tier[field] > 0) {
           segments.push({

@@ -468,9 +468,17 @@ those same files but were **not** auto-ported — port them on demand:
 - [ ] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
   Update `web/classic/src/components/table/users/UsersColumnDefs.jsx`
   and the corresponding render helpers in `helpers/render.jsx`.
-- [ ] **Tiered-billing Base64 decode + label fixes** (`938dc9522`,
-  `9f8a4ec05`). Both touch `helpers/render.jsx`'s tiered-pricing
-  renderers.
+- [x] **Tiered-billing Base64 decode + label fixes** (`938dc9522`,
+  `9f8a4ec05`). Ported the three logical fixes to
+  `web/classic/src/helpers/render.jsx`:
+  (a) `decodeBillingExprB64` replaces bare `atob` so non-ASCII tier
+  labels survive the round trip;
+  (b) `normalizeTierLabel` collapses `<` / `≤` / `<=` / full-width
+  variants and whitespace before equality;
+  (c) `resolveMatchedTier` no longer falls back to `tiers[0]` —
+  unmatched logs render as `阶梯计费（未匹配到对应阶梯）` instead of
+  showing fabricated unit prices. Cache-token filter (`9f8a4ec05`)
+  hides cache-related price rows when no cache tokens were used.
 - [ ] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
   `cc4ad6c39`). Big upstream-side refactor of
   `pages/Setting/Ratio/UpstreamRatioSync.jsx` (8 hunks, including a
