@@ -453,11 +453,16 @@ seven code-conflict files in `web/classic/` were resolved in favour of
 this fork's HeroUI v3 rewrite. The following upstream features touched
 those same files but were **not** auto-ported — port them on demand:
 
-- [ ] **Classic → Default frontend switcher** (upstream `dac55f0fd`).
-  Adds `switchToDefaultFrontend` to `OtherSetting.jsx` plus a button
-  that flips `theme.frontend = 'default'` and reloads. Backend already
-  honours this option (`setting/system_setting/theme.go`). Add a HeroUI
-  Button in the OtherSetting personalization card to expose it.
+- [x] **Classic → Default frontend switcher** (upstream `dac55f0fd`).
+  Ported to HeroUI: `OtherSetting.jsx` now hosts `switchToDefaultFrontend`
+  which `PUT`s `theme.frontend=default` then reloads. Confirm dialog uses
+  the existing shared `ConfirmDialog` component instead of Semi
+  `Modal.confirm`. Button rendered in the 系统信息 card next to 检查更新
+  with `variant='tertiary'` so it reads as a secondary action.
+- [ ] **Reverse switcher in `web/default`** — once a user is on the new
+  frontend they currently have no in-UI way back to classic. Should add
+  the symmetric switcher there (or in the user dropdown / theme picker)
+  as long as we keep both frontends bundled.
 - [ ] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
   Update `web/classic/src/components/table/channels/modals/ModelSelectModal.jsx`.
 - [ ] **User `created_at` / `last_login_at` columns** (`02aacb38a`).

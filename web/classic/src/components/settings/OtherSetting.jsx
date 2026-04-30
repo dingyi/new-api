@@ -30,6 +30,7 @@ import { API, showError, showSuccess, timestamp2string } from '../../helpers';
 import { marked } from 'marked';
 import { useTranslation } from 'react-i18next';
 import { StatusContext } from '../../context/Status';
+import ConfirmDialog from '../common/ui/ConfirmDialog';
 
 const LEGAL_USER_AGREEMENT_KEY = 'legal.user_agreement';
 const LEGAL_PRIVACY_POLICY_KEY = 'legal.privacy_policy';
@@ -114,7 +115,9 @@ const OtherSetting = () => {
     About: false,
     Footer: false,
     CheckUpdate: false,
+    FrontendTheme: false,
   });
+  const [showSwitchFrontendModal, setShowSwitchFrontendModal] = useState(false);
 
   const handleInputChange = (key, value) => {
     setInputs((prev) => ({ ...prev, [key]: value }));
@@ -177,6 +180,34 @@ const OtherSetting = () => {
     }
   };
 
+  // Switch the active frontend to upstream's React 19 / Radix `web/default`
+  // build. Backend persists `theme.frontend` via `PUT /api/option/` and
+  // serves the matching bundle on next page load (router/web-router.go).
+  const switchToDefaultFrontend = async () => {
+    setShowSwitchFrontendModal(false);
+    try {
+      setLoadingInput((prev) => ({ ...prev, FrontendTheme: true }));
+      const res = await API.put('/api/option/', {
+        key: 'theme.frontend',
+        value: 'default',
+      });
+      const { success, message } = res.data;
+      if (!success) {
+        showError(message);
+        return;
+      }
+      showSuccess(t('已切换到新版前端，正在刷新页面'));
+      setTimeout(() => {
+        window.location.reload();
+      }, 600);
+    } catch (error) {
+      console.error('Failed to switch frontend:', error);
+      showError(t('切换失败，请稍后重试'));
+    } finally {
+      setLoadingInput((prev) => ({ ...prev, FrontendTheme: false }));
+    }
+  };
+
   const getOptions = async () => {
     const res = await API.get('/api/option/');
     const { success, message, data } = res.data;
@@ -227,6 +258,13 @@ const OtherSetting = () => {
               isPending={loadingInput['CheckUpdate']}
             >
               {t('检查更新')}
+            </Button>
+            <Button
+              variant='tertiary'
+              onPress={() => setShowSwitchFrontendModal(true)}
+              isPending={loadingInput['FrontendTheme']}
+            >
+              {t('切换到新版前端')}
             </Button>
           </div>
           <div>
@@ -469,6 +507,17 @@ const OtherSetting = () => {
           </ModalContainer>
         </ModalBackdrop>
       </Modal>
+
+      <ConfirmDialog
+        visible={showSwitchFrontendModal}
+        title={t('切换到新版前端')}
+        cancelText={t('取消')}
+        confirmText={t('确认切换')}
+        onCancel={() => setShowSwitchFrontendModal(false)}
+        onConfirm={switchToDefaultFrontend}
+      >
+        {t('切换后页面会自动刷新，并进入新版前端。是否继续？')}
+      </ConfirmDialog>
     </div>
   );
 };
