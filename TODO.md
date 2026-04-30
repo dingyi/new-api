@@ -444,3 +444,33 @@ during dev work:
 - Clicking the header 系统公告 button mounts `NoticeModal` with both
   `通知` / `系统公告` tabs visible and selectable.
 - `python3 scripts/seed_demo.py --help` prints the expected CLI surface.
+
+## Upstream Sync (v1.0 frontend split) — Follow-ups
+
+The merge from `upstream/main` (commit `dac55f0fd`) accepted the rename
+`web/* → web/classic/*` and pulled in the brand-new `web/default/`. All
+seven code-conflict files in `web/classic/` were resolved in favour of
+this fork's HeroUI v3 rewrite. The following upstream features touched
+those same files but were **not** auto-ported — port them on demand:
+
+- [ ] **Classic → Default frontend switcher** (upstream `dac55f0fd`).
+  Adds `switchToDefaultFrontend` to `OtherSetting.jsx` plus a button
+  that flips `theme.frontend = 'default'` and reloads. Backend already
+  honours this option (`setting/system_setting/theme.go`). Add a HeroUI
+  Button in the OtherSetting personalization card to expose it.
+- [ ] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
+  Update `web/classic/src/components/table/channels/modals/ModelSelectModal.jsx`.
+- [ ] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
+  Update `web/classic/src/components/table/users/UsersColumnDefs.jsx`
+  and the corresponding render helpers in `helpers/render.jsx`.
+- [ ] **Tiered-billing Base64 decode + label fixes** (`938dc9522`,
+  `9f8a4ec05`). Both touch `helpers/render.jsx`'s tiered-pricing
+  renderers.
+- [ ] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
+  `cc4ad6c39`). Big upstream-side refactor of
+  `pages/Setting/Ratio/UpstreamRatioSync.jsx` (8 hunks, including a
+  ~426-line additions block). Consider porting only the new endpoint
+  shapes/options needed, not the Semi-era UI.
+- [ ] Decide longer-term whether `web/default/` is maintained against
+  upstream verbatim, forked, or removed entirely. Today it is a bundled
+  but unmaintained-by-this-fork dependency.
