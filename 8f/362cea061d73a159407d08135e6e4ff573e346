@@ -1,0 +1,25 @@
+TODO.md
+  c0f33899bc7de144 466-473
+web/classic/src/components/table/channels/modals/ModelSelectModal.jsx
+  c0f33899bc7de144 81-85,117-124,136-138,177-194,203-204,207-213,216,261,281-285,408-410,474,478-479,498-500
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "8f362cea061d73a159407d08135e6e4ff573e346",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 77,
+      "total_deletions": 9,
+      "accepted_lines": 73,
+      "overriden_lines": 0
+    }
+  }
+}
