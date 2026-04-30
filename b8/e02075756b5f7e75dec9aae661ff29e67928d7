@@ -1,0 +1,25 @@
+web/classic/src/components/table/users/UsersColumnDefs.jsx
+  c0f33899bc7de144 45-46,50-53,398-406
+TODO.md
+  c0f33899bc7de144 468-474
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "b8e02075756b5f7e75dec9aae661ff29e67928d7",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 28,
+      "total_deletions": 4,
+      "accepted_lines": 24,
+      "overriden_lines": 0
+    }
+  }
+}
