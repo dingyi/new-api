@@ -3999,6 +3999,7 @@
     "需要包含事件：checkout.session.completed 和 checkout.session.expired": "需要包含事件：checkout.session.completed 和 checkout.session.expired",
     "页": "页",
     "默认使用 USD 结算": "默认使用 USD 结算",
-    "最后登录": "最后登录"
+    "最后登录": "最后登录",
+    "上游已删除的模型": "上游已删除的模型"
   }
 }

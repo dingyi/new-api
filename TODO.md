@@ -463,8 +463,14 @@ those same files but were **not** auto-ported — port them on demand:
   frontend they currently have no in-UI way back to classic. Should add
   the symmetric switcher there (or in the user dropdown / theme picker)
   as long as we keep both frontends bundled.
-- [ ] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
-  Update `web/classic/src/components/table/channels/modals/ModelSelectModal.jsx`.
+- [x] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
+  EditChannelModal already passed `redirectSourceModels` (the merge
+  picked up that side automatically since EditChannelModal had no
+  conflicts); ModelSelectModal now consumes it. Adds a `removed` tab
+  populated by selected model names absent from the freshly-fetched
+  list AND not present as model_mapping source keys. Default-tab
+  priority is now: new → removed → existing. New i18n key
+  `上游已删除的模型` added to all 8 locale files.
 - [x] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
   Backend already merged (`model/user.go` + `controller/user.go`).
   Added two columns to `UsersColumnDefs.jsx` between 邀请信息 and the

@@ -78,6 +78,11 @@ const ModelSelectModal = ({
   models = [],
   selected = [],
   redirectModels = [],
+  // Source-side keys of the user's model_mapping JSON (i.e. the public
+  // names the channel exposes). Models whose names appear here are NOT
+  // counted as "removed upstream" because they're meant to forward to
+  // something else — see EditChannelModal.redirectModelKeyList.
+  redirectSourceModels = [],
   onConfirm,
   onCancel,
 }) => {
@@ -109,6 +114,14 @@ const ModelSelectModal = ({
 
   const normalizeModelName = (model) =>
     typeof model === 'string' ? model.trim() : '';
+  const normalizeModelList = (modelList = []) =>
+    Array.from(
+      new Set(
+        (modelList || [])
+          .map((model) => getModelName(model).trim())
+          .filter(Boolean),
+      ),
+    );
   const normalizedRedirectModels = useMemo(
     () =>
       Array.from(
@@ -119,6 +132,10 @@ const ModelSelectModal = ({
         ),
       ),
     [redirectModels],
+  );
+  const normalizedRedirectSourceSet = useMemo(
+    () => new Set(normalizeModelList(redirectSourceModels)),
+    [redirectSourceModels],
   );
   const normalizedSelectedSet = useMemo(() => {
     const set = new Set();
@@ -157,6 +174,24 @@ const ModelSelectModal = ({
   const existingModels = filteredModels.filter((model) =>
     isExistingModel(model),
   );
+  // Names the user previously selected that no longer appear in the
+  // upstream-fetched list (and aren't being redirected). Surfaces the
+  // gap so the user can decide whether to drop them or keep them as
+  // aliases. Mirrors upstream 4c21c4c43.
+  const fetchedModelSet = useMemo(
+    () => new Set(normalizeModelList(models)),
+    [models],
+  );
+  const removedModels = useMemo(
+    () =>
+      normalizeModelList(selected).filter(
+        (model) =>
+          !fetchedModelSet.has(model) &&
+          !normalizedRedirectSourceSet.has(model) &&
+          model.toLowerCase().includes(keyword.toLowerCase()),
+      ),
+    [selected, fetchedModelSet, normalizedRedirectSourceSet, keyword],
+  );
 
   // Sync external selection
   useEffect(() => {
@@ -165,14 +200,20 @@ const ModelSelectModal = ({
     }
   }, [visible, normalizedSelected]);
 
-  // Default the active tab when the model list changes
+  // Default the active tab when the model list changes. New > removed >
+  // existing — surface the most actionable signal first.
   useEffect(() => {
     if (visible) {
-      const hasNewModels = newModels.length > 0;
-      setActiveTab(hasNewModels ? 'new' : 'existing');
+      if (newModels.length > 0) {
+        setActiveTab('new');
+      } else if (removedModels.length > 0) {
+        setActiveTab('removed');
+      } else {
+        setActiveTab('existing');
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible, newModels.length, selected]);
+  }, [visible, newModels.length, removedModels.length, selected]);
 
   const handleOk = () => {
     onConfirm && onConfirm(checkedList);
@@ -217,6 +258,7 @@ const ModelSelectModal = ({
 
   const newModelsByCategory = categorizeModels(newModels);
   const existingModelsByCategory = categorizeModels(existingModels);
+  const removedModelsByCategory = categorizeModels(removedModels);
 
   // Tab list — only shows tabs that have models in them.
   const tabList = [
@@ -233,6 +275,14 @@ const ModelSelectModal = ({
           {
             label: `${t('已有的模型')} (${existingModels.length})`,
             key: 'existing',
+          },
+        ]
+      : []),
+    ...(removedModels.length > 0
+      ? [
+          {
+            label: `${t('上游已删除的模型')} (${removedModels.length})`,
+            key: 'removed',
           },
         ]
       : []),
@@ -352,7 +402,12 @@ const ModelSelectModal = ({
   };
 
   // Footer summary chip for the active tab
-  const currentModels = activeTab === 'new' ? newModels : existingModels;
+  const currentModels =
+    activeTab === 'new'
+      ? newModels
+      : activeTab === 'removed'
+        ? removedModels
+        : existingModels;
   const currentSelected = currentModels.filter((model) =>
     checkedList.includes(model),
   ).length;
@@ -415,11 +470,13 @@ const ModelSelectModal = ({
                   />
                 </div>
 
-                {!models || models.length === 0 ? (
+                {!models ||
+                (models.length === 0 && removedModels.length === 0) ? (
                   <div className='flex flex-col items-center justify-center gap-2 py-12'>
                     <Spinner color='primary' />
                   </div>
-                ) : filteredModels.length === 0 ? (
+                ) : filteredModels.length === 0 &&
+                  removedModels.length === 0 ? (
                   <div className='flex flex-col items-center gap-3 py-10 text-center'>
                     <div className='flex h-16 w-16 items-center justify-center rounded-full bg-surface-secondary text-muted'>
                       <Inbox size={28} />
@@ -436,6 +493,11 @@ const ModelSelectModal = ({
                     {activeTab === 'existing' && existingModels.length > 0 && (
                       <div>
                         {renderModelsByCategory(existingModelsByCategory)}
+                      </div>
+                    )}
+                    {activeTab === 'removed' && removedModels.length > 0 && (
+                      <div>
+                        {renderModelsByCategory(removedModelsByCategory)}
                       </div>
                     )}
                   </>
