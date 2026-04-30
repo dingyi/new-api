@@ -8,6 +8,9 @@ upload
 build
 *.db-journal
 logs
+web/default/dist
+web/classic/dist
+web/node_modules
 web/dist
 .env
 one-api
@@ -19,15 +22,17 @@ tiktoken_cache
 .gocache
 .gomodcache/
 .cache
-web/bun.lock
 plans
 .claude
+.cursor
 .playwright-mcp
 *.png
 *.jpg
 *.jpeg
-!web/public/**/*.png
-!web/public/**/*.jpg
+!web/classic/public/**/*.png
+!web/classic/public/**/*.jpg
+!web/default/public/**/*.png
+!web/default/public/**/*.jpg
 
 electron/node_modules
 electron/dist
