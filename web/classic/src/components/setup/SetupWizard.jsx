@@ -19,7 +19,7 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useEffect, useState } from 'react';
 import { Card } from '@heroui/react';
-import { CheckCircle2, Database, KeyRound, Settings2 } from 'lucide-react';
+import { Check, CheckCircle2, Database, KeyRound, Settings2 } from 'lucide-react';
 import { API, showError, showNotice } from '../../helpers';
 import { useTranslation } from 'react-i18next';
 
@@ -28,6 +28,119 @@ import DatabaseStep from './components/steps/DatabaseStep';
 import AdminStep from './components/steps/AdminStep';
 import UsageModeStep from './components/steps/UsageModeStep';
 import CompleteStep from './components/steps/CompleteStep';
+
+// Visual stepper rendered above each step's body. Mirrors the v3 default
+// frontend's onboarding pattern (`web/default/src/features/setup/setup-wizard.tsx`)
+// but in HeroUI / Tailwind tokens consistent with the rest of `web/classic`.
+//
+// Three states per item, picked by index vs `currentStep`:
+//   active     — bordered ring, primary-tinted circle showing the step icon
+//   completed  — primary border + tint, circle shows a check glyph
+//   pending    — muted border + neutral surface, circle shows the step number
+//
+// Lays out as a 4-column grid on >= sm so all steps stay in one row; collapses
+// to a single column on mobile to keep title/description readable.
+// Selected/completed surfaces fill via inline style (`var(--app-primary)`)
+// rather than `bg-primary`/`border-primary` Tailwind utilities — this fork's
+// Tailwind JIT does not emit those rules into the bundle (verified: 0 hits
+// in compiled CSS). The same workaround is documented inside UsageModeStep.
+function SetupStepper({ steps, currentStep, t }) {
+  const cardStyle = (isActive, isCompleted) => {
+    if (isActive) {
+      return {
+        borderColor: 'var(--app-primary)',
+        boxShadow: '0 0 0 2px color-mix(in srgb, var(--app-primary) 20%, transparent)',
+        backgroundColor: 'var(--app-background)',
+      };
+    }
+    if (isCompleted) {
+      return {
+        // Dark border tracks the dark glyph inside the completed step's
+        // circle; user explicitly asked for it. Kept the 40% transparency
+        // from the original cyan tint so completed reads quieter than
+        // active (which still uses a saturated cyan border + ring).
+        borderColor: 'color-mix(in srgb, #0a0a0a 40%, transparent)',
+        backgroundColor: 'color-mix(in srgb, var(--app-primary) 5%, transparent)',
+      };
+    }
+    return null; // Tailwind classes handle the pending state
+  };
+
+  const circleStyle = (isActive, isCompleted) => {
+    if (isActive || isCompleted) {
+      return {
+        borderColor: 'var(--app-primary)',
+        backgroundColor: 'var(--app-primary)',
+        // Dark glyph on cyan, matching the selected mode-card icon and
+        // this fork's `.button--primary` convention (cyan + near-black
+        // text). Hardcoded near-black because `--app-primary-foreground`
+        // is empty in this fork and `var(--app-foreground)` would flip
+        // with the theme even though cyan stays theme-stable.
+        color: '#0a0a0a',
+      };
+    }
+    return null;
+  };
+
+  return (
+    <ol className='grid gap-2.5 sm:grid-cols-4'>
+      {steps.map((step, index) => {
+        const isActive = index === currentStep;
+        const isCompleted = index < currentStep;
+        const Icon = step.icon;
+
+        return (
+          <li
+            key={step.title}
+            className={`rounded-2xl border p-3 transition-colors ${
+              isActive || isCompleted ? '' : 'border-border bg-background/60'
+            }`}
+            style={cardStyle(isActive, isCompleted) || undefined}
+          >
+            <div className='flex items-start gap-3'>
+              <span
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${
+                  isActive || isCompleted
+                    ? ''
+                    : 'border-border bg-surface-secondary text-muted'
+                }`}
+                style={circleStyle(isActive, isCompleted) || undefined}
+                aria-hidden='true'
+              >
+                {isCompleted ? (
+                  <Check size={14} strokeWidth={3} />
+                ) : isActive ? (
+                  <Icon size={14} />
+                ) : (
+                  index + 1
+                )}
+              </span>
+              <div className='min-w-0 space-y-0.5'>
+                <p
+                  className={`text-sm font-semibold ${
+                    isActive || isCompleted ? 'text-foreground' : 'text-muted'
+                  }`}
+                >
+                  {step.title}
+                </p>
+                <p className='text-xs leading-snug text-muted'>
+                  {step.description}
+                </p>
+              </div>
+            </div>
+            <span className='sr-only'>
+              {isCompleted
+                ? t('已完成')
+                : isActive
+                  ? t('进行中')
+                  : t('待处理')}
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
 
 const SetupWizard = () => {
   const { t } = useTranslation();
@@ -156,7 +269,7 @@ const SetupWizard = () => {
     setCurrentStep(current);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     // For root_init=false, validate admin username and password
     if (!setupStatus.root_init) {
       if (!formData.username || !formData.username.trim()) {
@@ -187,28 +300,47 @@ const SetupWizard = () => {
     // 提交表单至后端
     setLoading(true);
 
-    // Submit to backend
-    API.post('/api/setup', formValues)
-      .then((res) => {
-        const { success, message } = res.data;
+    try {
+      const res = await API.post('/api/setup', formValues);
+      const { success, message } = res.data;
 
-        if (success) {
-          showNotice(t('系统初始化成功，正在跳转...'));
+      if (success) {
+        showNotice(t('系统初始化成功，正在跳转...'));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+        return;
+      }
+
+      // Backend declined the submission. The most common cause is a
+      // staleness race: another tab or an earlier session already
+      // finished setup (so backend's `constant.Setup` is true), but
+      // this tab's cached `setupStatus` still says status:false and
+      // walked the user through every step. Re-poll /api/setup; if
+      // it now reports status:true, treat the failure as "already
+      // done elsewhere" and redirect quietly — showing the raw
+      // 系统已经初始化完成 error here would imply user-facing fault
+      // and leaves them stuck on the wizard with no working action.
+      try {
+        const recheck = await API.get('/api/setup');
+        if (recheck.data?.success && recheck.data?.data?.status) {
+          showNotice(t('系统已初始化，正在跳转...'));
           setTimeout(() => {
             window.location.reload();
           }, 1500);
-        } else {
-          showError(message || t('初始化失败，请重试'));
+          return;
         }
-      })
-      .catch((error) => {
-        console.error('API error:', error);
-        showError(t('系统初始化失败，请重试'));
-        setLoading(false);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      } catch {
+        // Fall through to surface the original error message below.
+      }
+
+      showError(message || t('初始化失败，请重试'));
+    } catch (error) {
+      console.error('API error:', error);
+      showError(t('系统初始化失败，请重试'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 获取步骤内容
@@ -253,14 +385,19 @@ const SetupWizard = () => {
   };
 
   return (
-    <div className='relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.14),transparent_28%),var(--app-background)] px-4 pb-16 pt-28 sm:px-6'>
+    // Layout: PageLayout strips its global header/sidebar on /setup, so the
+    // wizard owns the full viewport. Vertical padding is symmetric (`py-12`)
+    // because there's no longer a fixed top nav to dodge — the wizard centres
+    // itself around the viewport midpoint regardless of card height.
+    <div className='relative min-h-dvh overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.14),transparent_28%),var(--app-background)] px-4 py-12 sm:px-6'>
       <div className='pointer-events-none absolute left-[-120px] top-20 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl' />
       <div className='pointer-events-none absolute bottom-[-120px] right-[-80px] h-80 w-80 rounded-full bg-emerald-400/10 blur-3xl' />
 
-      <div className='relative mx-auto flex min-h-[calc(100vh-11rem)] w-full max-w-4xl items-center'>
+      <div className='relative mx-auto flex min-h-[calc(100dvh-6rem)] w-full max-w-4xl items-center'>
         <div className='min-w-0 w-full'>
           <Card className='rounded-[2rem] border border-border bg-background/88 p-5 shadow-[0_28px_90px_rgba(15,23,42,0.16)] backdrop-blur-xl sm:p-8'>
-            <div className='steps-content'>
+            <SetupStepper steps={steps} currentStep={currentStep} t={t} />
+            <div className='steps-content mt-6'>
               {React.cloneElement(getStepContent(currentStep), {
                 ...stepNavigationProps,
                 renderNavigationButtons: () => (

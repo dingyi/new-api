@@ -63,20 +63,33 @@ const CompleteStep = ({
 
   return (
     <div>
-      <Card className='mb-5 overflow-hidden rounded-3xl border border-emerald-200 bg-[linear-gradient(135deg,rgba(16,185,129,0.14),rgba(14,165,233,0.10))] p-5 dark:border-emerald-900/60'>
-        <div className='flex flex-col gap-4 sm:flex-row sm:items-center'>
-          <div className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'>
-            <Rocket size={26} />
+      {/*
+        Layout mirrors DatabaseStep's info card so the four steps share
+        one visual grammar: `h-12` filled icon on the left, heading + an
+        inline chip + description column on the right. The previous
+        treatment used a `h-14` rocket on an emerald gradient with the
+        chip stacked above a `text-2xl` title — louder than every other
+        step in the wizard, and the chip / title / description weren't
+        sharing a left edge. Keeping the green tint for the "success
+        ready" semantic but dialing it down to a tinted card so it doesn't
+        outshout the actual call-to-action button below.
+      */}
+      <Card className='mb-3 rounded-3xl border border-emerald-200 bg-emerald-50/80 p-5 dark:border-emerald-900/60 dark:bg-emerald-950/30'>
+        <div className='flex items-start gap-4'>
+          <div className='flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-white'>
+            <Rocket size={24} />
           </div>
           <div className='min-w-0'>
-            <Chip variant='tertiary' color='success' className='mb-3 w-fit'>
-              <CheckCircle2 size={14} />
-              {t('准备就绪')}
-            </Chip>
-            <h3 className='text-2xl font-semibold tracking-tight text-foreground'>
-              {t('准备完成初始化')}
-            </h3>
-            <p className='mt-2 text-sm leading-6 text-foreground'>
+            <div className='mb-2 flex flex-wrap items-center gap-2'>
+              <h3 className='text-lg font-semibold text-foreground'>
+                {t('准备完成初始化')}
+              </h3>
+              <Chip variant='tertiary' color='success' className='w-fit'>
+                <CheckCircle2 size={14} />
+                {t('准备就绪')}
+              </Chip>
+            </div>
+            <p className='text-sm leading-6 text-foreground'>
               {t('请确认以下设置信息，点击"初始化系统"开始配置')}
             </p>
           </div>
@@ -95,8 +108,10 @@ const CompleteStep = ({
             <div className='mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-surface-secondary text-muted'>
               <Icon size={20} />
             </div>
-            <div className='text-xs text-muted'>{item.label}</div>
-            <div className='mt-1 text-sm font-semibold text-foreground'>
+            <div className='text-xs leading-tight text-muted'>
+              {item.label}
+            </div>
+            <div className='mt-0.5 text-sm font-semibold leading-tight text-foreground'>
               {item.value}
             </div>
           </Card>

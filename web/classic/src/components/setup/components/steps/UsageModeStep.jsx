@@ -75,15 +75,48 @@ const UsageModeStep = ({
             >
               <RadioButtonGroup.Indicator />
               <RadioButtonGroup.ItemContent className='gap-4'>
-                <RadioButtonGroup.ItemIcon
-                  className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                {/*
+                  Plain <div> instead of RadioButtonGroup.ItemIcon: the
+                  Pro component's `ItemIcon` slot owns the rendering of
+                  the selection indicator (check glyph) and silently
+                  drops `children` when the item is selected, leaving an
+                  empty primary-tinted square. Using our own div keeps
+                  the lucide icon under our control across both states.
+
+                  Selected fill goes through inline style (`var(--app-primary)`)
+                  rather than the `bg-primary` Tailwind utility — this
+                  fork's Tailwind JIT is not emitting `bg-primary`/`bg-success`
+                  rules into the dev bundle (verified: 0 hits in compiled
+                  CSS), which would otherwise leave the icon container
+                  transparent and the white SVG invisible against the
+                  surrounding card background. Inline style is exactly
+                  the same convention `web/classic/src/index.css`'s
+                  `.button--primary` uses.
+                */}
+                <div
+                  aria-hidden='true'
+                  className='flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl transition-colors'
+                  style={
                     selected
-                      ? 'bg-primary text-white'
-                      : 'bg-surface-secondary text-muted'
-                  }`}
+                      ? {
+                          // Dark glyph on cyan matches the visual language
+                          // of this fork's `.button--primary` (cyan fill
+                          // + near-black text). Hardcoded near-black —
+                          // the token `--app-primary-foreground` is empty
+                          // in this fork, and `var(--app-foreground)`
+                          // would flip with the theme even though the
+                          // cyan fill itself is theme-stable.
+                          backgroundColor: 'var(--app-primary)',
+                          color: '#0a0a0a',
+                        }
+                      : {
+                          backgroundColor: 'var(--app-surface-secondary)',
+                          color: 'var(--app-muted)',
+                        }
+                  }
                 >
                   <Icon size={22} />
-                </RadioButtonGroup.ItemIcon>
+                </div>
                 <div>
                   <Label className='text-base font-semibold text-foreground'>
                     {t(title)}

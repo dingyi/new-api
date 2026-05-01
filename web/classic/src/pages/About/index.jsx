@@ -34,8 +34,13 @@ import { Button, Card, Chip, Spinner } from '@heroui/react';
 import { EmptyState } from '@heroui-pro/react';
 import { useNavigate } from 'react-router-dom';
 
+// `flex min-h-full flex-col justify-center` vertically centres the
+// content inside <main>'s flex-1 wrapper. Without it the About card
+// hugged the top of the viewport with a large empty band underneath
+// — which read as broken alignment, especially on the "no content
+// configured" empty state where the card itself is only ~340px tall.
 const PAGE_SHELL =
-  'mx-auto w-full max-w-3xl px-4 pb-12 pt-6 sm:px-6 sm:pt-8 lg:px-8';
+  'mx-auto flex min-h-full w-full max-w-3xl flex-col justify-center px-4 pb-12 pt-6 sm:px-6 sm:pt-8 lg:px-8';
 
 const About = () => {
   const { t } = useTranslation();
