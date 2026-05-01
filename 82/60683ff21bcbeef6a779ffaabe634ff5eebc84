@@ -1,0 +1,23 @@
+web/classic/src/components/auth/AuthLayout.jsx
+  c0f33899bc7de144 25-26,35,224-225,228-235,239-249,251,253-254,256,258-259,263,265-266
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "8260683ff21bcbeef6a779ffaabe634ff5eebc84",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 35,
+      "total_deletions": 34,
+      "accepted_lines": 33,
+      "overriden_lines": 0
+    }
+  }
+}
