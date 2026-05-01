@@ -1,5 +1,27 @@
 # TODO
 
+## Active follow-ups
+
+The four items below are the only open work in this file. Everything
+else is historical work-log; the most recent finished section is the
+**Upstream Sync (v1.0 frontend split)** block towards the bottom.
+
+- [ ] Manual QA pass on responsive breakpoints (xs/sm/md), console +
+  non-console routes, and the mobile menu open/close animation while
+  the sidebar drawer is also available. (See _HeroUI Migration ▸
+  Follow-ups_.)
+- [ ] Verify `hideOnScroll` is intentionally off — current layout pins
+  the header inside `Sidebar.Provider`'s flex column, so sticky /
+  scroll-hide does not apply. (See _HeroUI Migration ▸ Follow-ups_.)
+- [ ] Visual QA all `/console` sub-pages in light + dark themes;
+  capture before/after. (See _HeroUI Migration ▸ Next steps_.)
+- [ ] Consider centering page content with `max-w-7xl mx-auto` like
+  the template (currently console pages stretch full width). (See
+  _HeroUI Migration ▸ Next steps_.)
+
+All four are visual / UX judgement calls best done by a human in a
+running browser; not appropriate for an automated agent PR.
+
 ## HeroUI Migration
 
 - [x] Start local dev environment at `http://localhost:5173/`.
