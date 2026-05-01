@@ -1,0 +1,25 @@
+TODO.md
+  c0f33899bc7de144 500-521
+web/classic/src/pages/Setting/Ratio/UpstreamRatioSync.jsx
+  c0f33899bc7de144 60-97,401-405,407-409,412-433,435-447,450-453,455-486,488-489,492,501-504,506-511,517-521,524-526,530-533,540-546,593-601,603-615,621-622,626-629,631,646-654,656-659,703,791-793,812,814,845-848,850,857-860,862-863,1119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "a3a49d41de9d3acde954c4cc4fd5bf0bac72e750",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 238,
+      "total_deletions": 45,
+      "accepted_lines": 231,
+      "overriden_lines": 0
+    }
+  }
+}
