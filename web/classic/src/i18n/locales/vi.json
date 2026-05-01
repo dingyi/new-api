@@ -4451,6 +4451,10 @@
     "预计费用": "",
     "默认使用 USD 结算": "",
     "最后登录": "Đăng nhập gần nhất",
-    "上游已删除的模型": "Đã bị thượng nguồn xóa"
+    "上游已删除的模型": "Đã bị thượng nguồn xóa",
+    "创建缓存倍率": "Tỉ lệ tạo bộ nhớ đệm",
+    "图像倍率": "Tỉ lệ hình ảnh",
+    "音频倍率": "Tỉ lệ âm thanh",
+    "阶梯计费表达式": "Biểu thức tính phí theo bậc"
   }
 }
