@@ -22,7 +22,8 @@ import {
   Button,
   Card,
   Checkbox,
-  Input,
+  InputGroup,
+  Label,
   Modal,
   ModalBackdrop,
   ModalBody,
@@ -31,6 +32,7 @@ import {
   ModalFooter,
   ModalHeader,
   Separator,
+  TextField,
   useOverlayState,
 } from '@heroui/react';
 
@@ -219,50 +221,49 @@ export function AuthTextField({
   onChange,
   onValueChange,
   name,
+  value,
+  defaultValue,
   ...props
 }) {
-  const handleValueChange = (eventOrValue) => {
-    const value = eventOrValue?.target
-      ? eventOrValue.target.value
-      : eventOrValue;
-
-    onValueChange?.(value);
-    onChange?.(
-      eventOrValue?.target
-        ? eventOrValue
-        : {
-            target: {
-              name,
-              value,
-            },
-          },
-    );
+  // The form code on this page passes plain `onChange(event)` callbacks
+  // (because the previous implementation handed an `<input>` to
+  // listeners). HeroUI's TextField prefers `onChange(value: string)`,
+  // so bridge: synthesise a minimal event for legacy listeners while
+  // also forwarding the raw value to anyone using the new API.
+  const handleValueChange = (nextValue) => {
+    onValueChange?.(nextValue);
+    onChange?.({ target: { name, value: nextValue } });
   };
 
   return (
-    <label className={`block text-sm font-medium text-foreground ${className}`}>
-      <span className='mb-1.5 block'>{label}</span>
-      <div className='relative flex items-center'>
+    // TextField owns the label-input pairing (a11y + state); InputGroup
+    // owns the visual chrome (border / focus ring / hovered state).
+    // Replaces a hand-rolled label + absolute-positioned icon overlay +
+    // `focus:ring-4` Input that was double-drawing a 4px ring on top of
+    // the existing 1px border (visible as "border thickens on focus").
+    <TextField
+      name={name}
+      value={value}
+      defaultValue={defaultValue}
+      onChange={handleValueChange}
+      className={`block ${className}`}
+    >
+      <Label className='mb-1.5 block text-sm font-medium text-foreground'>
+        {label}
+      </Label>
+      <InputGroup fullWidth className='h-12 rounded-2xl'>
         {icon ? (
-          <span className='pointer-events-none absolute left-3 z-10 text-muted'>
-            {icon}
-          </span>
+          <InputGroup.Prefix className='text-muted'>{icon}</InputGroup.Prefix>
         ) : null}
-        <Input
-          fullWidth
-          className={`h-12 rounded-2xl border border-border bg-background/85 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 ${icon ? 'pl-10' : ''} ${action ? 'pr-32' : ''} ${inputClassName}`}
-          name={name}
-          onChange={handleValueChange}
-          onValueChange={handleValueChange}
+        <InputGroup.Input
+          className={`text-foreground ${inputClassName}`}
           {...props}
         />
         {action ? (
-          <div className='absolute right-1.5 z-10 flex items-center'>
-            {action}
-          </div>
+          <InputGroup.Suffix className='pr-1.5'>{action}</InputGroup.Suffix>
         ) : null}
-      </div>
-    </label>
+      </InputGroup>
+    </TextField>
   );
 }
 
