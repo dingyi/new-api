@@ -1,0 +1,23 @@
+web/classic/src/components/layout/headerbar/UserArea.jsx
+  c0f33899bc7de144 21,196-212
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "46d507643cbd9f671424bd552e04737d6c163ef8",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 33,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    }
+  }
+}
