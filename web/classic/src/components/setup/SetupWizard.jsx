@@ -67,7 +67,12 @@ function SetupStepper({ steps, currentStep, t }) {
       return {
         borderColor: 'var(--app-primary)',
         backgroundColor: 'var(--app-primary)',
-        color: '#fff',
+        // Dark glyph on cyan, matching the selected mode-card icon and
+        // this fork's `.button--primary` convention (cyan + near-black
+        // text). Hardcoded near-black because `--app-primary-foreground`
+        // is empty in this fork and `var(--app-foreground)` would flip
+        // with the theme even though cyan stays theme-stable.
+        color: '#0a0a0a',
       };
     }
     return null;
