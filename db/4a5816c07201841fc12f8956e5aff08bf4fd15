@@ -1,0 +1,23 @@
+web/classic/src/pages/About/index.jsx
+  c0f33899bc7de144 37-41,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "db4a5816c07201841fc12f8956e5aff08bf4fd15",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 1,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
