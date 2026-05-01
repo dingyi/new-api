@@ -101,8 +101,13 @@ const PageLayout = () => {
   ];
 
   const isConsoleRoute = location.pathname.startsWith('/console');
+  // Setup wizard owns the entire viewport — it's an onboarding flow that
+  // runs before users have any context for the global header / sidebar /
+  // footer (in fact it CAN'T render them sensibly because there's no logged-in
+  // session yet on first run). Treat it as a fullscreen route.
+  const isSetupRoute = location.pathname === '/setup';
   const shouldHideFooter =
-    isConsoleRoute || cardProPages.includes(location.pathname);
+    isConsoleRoute || isSetupRoute || cardProPages.includes(location.pathname);
 
   const shouldInnerPadding =
     location.pathname.includes('/console') &&
@@ -186,6 +191,23 @@ const PageLayout = () => {
       }
     }
   }, [i18n, userState?.user?.setting]);
+
+  // Setup gets its own minimal shell: no header, no sidebar, no
+  // page-header row. The wizard's own card already provides background
+  // gradients + branding, and dropping the chrome avoids the visual
+  // clash of a console-style header floating above an onboarding flow.
+  if (isSetupRoute) {
+    return (
+      <PageHeaderProvider>
+        <main className='h-dvh w-full overflow-y-auto'>
+          <ErrorBoundary key={location.pathname}>
+            <App />
+          </ErrorBoundary>
+        </main>
+        <ToastViewport />
+      </PageHeaderProvider>
+    );
+  }
 
   // Hoist Sidebar.Provider to the root so HeaderBar (mobile menu toggle) and
   // SiderBar both have access to `useSidebar()`. The provider's default flex

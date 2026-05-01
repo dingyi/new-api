@@ -4033,6 +4033,7 @@
     "创建缓存倍率": "Create cache ratio",
     "图像倍率": "Image ratio",
     "音频倍率": "Audio ratio",
-    "阶梯计费表达式": "Tiered billing expression"
+    "阶梯计费表达式": "Tiered billing expression",
+    "待处理": "Pending"
   }
 }
