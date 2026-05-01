@@ -40,7 +40,39 @@ import CompleteStep from './components/steps/CompleteStep';
 //
 // Lays out as a 4-column grid on >= sm so all steps stay in one row; collapses
 // to a single column on mobile to keep title/description readable.
+// Selected/completed surfaces fill via inline style (`var(--app-primary)`)
+// rather than `bg-primary`/`border-primary` Tailwind utilities — this fork's
+// Tailwind JIT does not emit those rules into the bundle (verified: 0 hits
+// in compiled CSS). The same workaround is documented inside UsageModeStep.
 function SetupStepper({ steps, currentStep, t }) {
+  const cardStyle = (isActive, isCompleted) => {
+    if (isActive) {
+      return {
+        borderColor: 'var(--app-primary)',
+        boxShadow: '0 0 0 2px color-mix(in srgb, var(--app-primary) 20%, transparent)',
+        backgroundColor: 'var(--app-background)',
+      };
+    }
+    if (isCompleted) {
+      return {
+        borderColor: 'color-mix(in srgb, var(--app-primary) 40%, transparent)',
+        backgroundColor: 'color-mix(in srgb, var(--app-primary) 5%, transparent)',
+      };
+    }
+    return null; // Tailwind classes handle the pending state
+  };
+
+  const circleStyle = (isActive, isCompleted) => {
+    if (isActive || isCompleted) {
+      return {
+        borderColor: 'var(--app-primary)',
+        backgroundColor: 'var(--app-primary)',
+        color: '#fff',
+      };
+    }
+    return null;
+  };
+
   return (
     <ol className='grid gap-2.5 sm:grid-cols-4'>
       {steps.map((step, index) => {
@@ -48,24 +80,22 @@ function SetupStepper({ steps, currentStep, t }) {
         const isCompleted = index < currentStep;
         const Icon = step.icon;
 
-        const cardCls = isActive
-          ? 'border-primary ring-2 ring-primary/20 bg-background'
-          : isCompleted
-            ? 'border-primary/40 bg-primary/5'
-            : 'border-border bg-background/60';
-        const circleCls =
-          isActive || isCompleted
-            ? 'border-primary bg-primary text-primary-foreground'
-            : 'border-border bg-surface-secondary text-muted';
-
         return (
           <li
             key={step.title}
-            className={`rounded-2xl border p-3 transition-colors ${cardCls}`}
+            className={`rounded-2xl border p-3 transition-colors ${
+              isActive || isCompleted ? '' : 'border-border bg-background/60'
+            }`}
+            style={cardStyle(isActive, isCompleted) || undefined}
           >
             <div className='flex items-start gap-3'>
               <span
-                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${circleCls}`}
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${
+                  isActive || isCompleted
+                    ? ''
+                    : 'border-border bg-surface-secondary text-muted'
+                }`}
+                style={circleStyle(isActive, isCompleted) || undefined}
                 aria-hidden='true'
               >
                 {isCompleted ? (
