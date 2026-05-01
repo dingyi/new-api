@@ -1,0 +1,23 @@
+web/classic/src/components/setup/SetupWizard.jsx
+  c0f33899bc7de144 272,303-304,309-313,315-327,331,333-338,340-341,343
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "35f7543f670a44c10589ec85baf4e7a0d2ac9bfc",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 37,
+      "total_deletions": 18,
+      "accepted_lines": 32,
+      "overriden_lines": 0
+    }
+  }
+}
