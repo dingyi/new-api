@@ -7,7 +7,8 @@ This is an AI API gateway/proxy built with Go. It aggregates 40+ upstream AI pro
 ## Tech Stack
 
 - **Backend**: Go 1.22+, Gin web framework, GORM v2 ORM
-- **Frontend**: React 18, Vite, Hero UI (@heroui/react) with compatibility wrappers
+- **Frontend (`web/classic/`, this fork's primary)**: React 18, Vite, Hero UI (@heroui/react) v3 with compatibility wrappers
+- **Frontend (`web/default/`, upstream's new build)**: React 19, TypeScript, Rsbuild, Radix UI, Tailwind CSS
 - **Databases**: SQLite, MySQL, PostgreSQL (all three must be supported)
 - **Cache**: Redis (go-redis) + in-memory cache
 - **Auth**: JWT, WebAuthn/Passkeys, OAuth (GitHub, Discord, OIDC, etc.)
@@ -33,8 +34,10 @@ types/         — Type definitions (relay formats, file sources, errors)
 i18n/          — Backend internationalization (go-i18n, en/zh)
 oauth/         — OAuth provider implementations
 pkg/           — Internal packages (cachex, ionet)
-web/           — React frontend
-  web/src/i18n/  — Frontend internationalization (i18next, zh/en/fr/ru/ja/vi)
+web/             — Frontend themes container
+  web/default/   — Upstream default frontend (React 19, Rsbuild, Radix UI, Tailwind)
+  web/classic/   — This fork's primary frontend (React 18, Vite, Hero UI v3 — migrated off Semi Design)
+  web/{default,classic}/src/i18n/ — Frontend internationalization (i18next)
 ```
 
 ## Internationalization (i18n)
@@ -43,13 +46,12 @@ web/           — React frontend
 - Library: `nicksnyder/go-i18n/v2`
 - Languages: en, zh
 
-### Frontend (`web/src/i18n/`)
+### Frontend (`web/default/src/i18n/`)
 - Library: `i18next` + `react-i18next` + `i18next-browser-languagedetector`
-- Languages: zh (fallback), en, fr, ru, ja, vi
-- Translation files: `web/src/i18n/locales/{lang}.json` — flat JSON, keys are Chinese source strings
-- Usage: `useTranslation()` hook, call `t('中文key')` in components
-- Semi UI locale synced via `SemiLocaleWrapper`
-- CLI tools: `bun run i18n:extract`, `bun run i18n:sync`, `bun run i18n:lint`
+- Languages: en (base), zh (fallback), fr, ru, ja, vi
+- Translation files: `web/default/src/i18n/locales/{lang}.json` — flat JSON, keys are English source strings
+- Usage: `useTranslation()` hook, call `t('English key')` in components
+- CLI tools: `bun run i18n:sync` (from `web/default/`)
 
 ## Rules
 
@@ -93,7 +95,7 @@ All database code MUST be fully compatible with all three databases simultaneous
 
 ### Rule 3: Frontend — Prefer Bun
 
-Use `bun` as the preferred package manager and script runner for the frontend (`web/` directory):
+Use `bun` as the preferred package manager and script runner for the frontend (`web/default/` directory):
 - `bun install` for dependency installation
 - `bun run dev` for development server
 - `bun run build` for production build

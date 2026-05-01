@@ -444,3 +444,80 @@ during dev work:
 - Clicking the header 系统公告 button mounts `NoticeModal` with both
   `通知` / `系统公告` tabs visible and selectable.
 - `python3 scripts/seed_demo.py --help` prints the expected CLI surface.
+
+## Upstream Sync (v1.0 frontend split) — Follow-ups
+
+The merge from `upstream/main` (commit `dac55f0fd`) accepted the rename
+`web/* → web/classic/*` and pulled in the brand-new `web/default/`. All
+seven code-conflict files in `web/classic/` were resolved in favour of
+this fork's HeroUI v3 rewrite. The following upstream features touched
+those same files but were **not** auto-ported — port them on demand:
+
+- [x] **Classic → Default frontend switcher** (upstream `dac55f0fd`).
+  Ported to HeroUI: `OtherSetting.jsx` now hosts `switchToDefaultFrontend`
+  which `PUT`s `theme.frontend=default` then reloads. Confirm dialog uses
+  the existing shared `ConfirmDialog` component instead of Semi
+  `Modal.confirm`. Button rendered in the 系统信息 card next to 检查更新
+  with `variant='tertiary'` so it reads as a secondary action.
+- [x] **Reverse switcher in `web/default`** — already present.
+  `web/default/src/features/system-settings/general/system-info-section.tsx`
+  exposes `theme.frontend` as a Select (default / classic) on the
+  System Information settings page. Saving immediately switches; next
+  page load serves the matching bundle.
+
+  Cosmetic gap (not a feature gap): the classic side has a prominent
+  one-click button on the 系统信息 card while default's switch lives
+  inside a longer settings form, so discoverability is asymmetric.
+  Deliberately NOT polishing this — touching `web/default` widgets
+  risks future sync conflicts and contradicts the "don't deep-maintain
+  web/default" stance below.
+- [x] **Show removed upstream models in fetch-models modal** (`4c21c4c43`).
+  EditChannelModal already passed `redirectSourceModels` (the merge
+  picked up that side automatically since EditChannelModal had no
+  conflicts); ModelSelectModal now consumes it. Adds a `removed` tab
+  populated by selected model names absent from the freshly-fetched
+  list AND not present as model_mapping source keys. Default-tab
+  priority is now: new → removed → existing. New i18n key
+  `上游已删除的模型` added to all 8 locale files.
+- [x] **User `created_at` / `last_login_at` columns** (`02aacb38a`).
+  Backend already merged (`model/user.go` + `controller/user.go`).
+  Added two columns to `UsersColumnDefs.jsx` between 邀请信息 and the
+  operate column, rendering via a local `renderTimestamp(ts)` that
+  treats `0` / missing as `-` (so users that haven't logged in since
+  the column was added don't show 1970). New i18n key `最后登录` added
+  to all 8 locale files (`创建时间` was already present).
+- [x] **Tiered-billing Base64 decode + label fixes** (`938dc9522`,
+  `9f8a4ec05`). Ported the three logical fixes to
+  `web/classic/src/helpers/render.jsx`:
+  (a) `decodeBillingExprB64` replaces bare `atob` so non-ASCII tier
+  labels survive the round trip;
+  (b) `normalizeTierLabel` collapses `<` / `≤` / `<=` / full-width
+  variants and whitespace before equality;
+  (c) `resolveMatchedTier` no longer falls back to `tiers[0]` —
+  unmatched logs render as `阶梯计费（未匹配到对应阶梯）` instead of
+  showing fabricated unit prices. Cache-token filter (`9f8a4ec05`)
+  hides cache-related price rows when no cache tokens were used.
+- [~] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
+  `cc4ad6c39`). **Backend portion already absorbed by the merge** —
+  `controller/ratio_sync.go` (+161/-46), `controller/channel_upstream_update.go`,
+  `setting/billing_setting/tiered_billing.go`, `setting/ratio_setting/model_ratio.go`
+  all carry the new pricing-endpoint sync logic. **Frontend portion deferred to a
+  separate PR**: upstream's `UpstreamRatioSync.jsx` rewrite is ~667 lines on the
+  Semi stack (new feedback, loading states, expression-priority resolution UI);
+  needs a from-scratch HeroUI implementation. Don't try to merge it into the
+  v1.0 sync PR — keeps the diff reviewable.
+- [x] **`web/default/` ownership decided: maintained (not passive).**
+  Both frontends are first-class on this fork. `web/default/` tracks
+  upstream verbatim and we forward upstream's `web/default/` changes
+  on each sync; HeroUI work continues on `web/classic/` without
+  touching default's Radix/Tailwind primitives. Practical
+  consequences:
+  - Upstream sync conflicts in `web/default/` should default to
+    "take theirs" unless a deliberate fork-only deviation is needed.
+  - Don't deep-customise default widgets (they'll re-conflict next
+    sync); cosmetic asymmetries between classic and default are
+    accepted (e.g. classic's prominent "切换到新版前端" button vs
+    default's settings-form Select for the same option).
+  - When porting an upstream feature that lives in both frontends,
+    the HeroUI port to `web/classic/` is the actual work; the
+    `web/default/` side has already arrived through the merge.
