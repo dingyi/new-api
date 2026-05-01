@@ -1,0 +1,25 @@
+web/classic/src/components/setup/SetupWizard.jsx
+  c0f33899bc7de144 22,32-104,330-334,338,341-342
+web/classic/src/components/layout/PageLayout.jsx
+  c0f33899bc7de144 104-108,110,195-211
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "bf7a7b8ad03e679c9a2711b76250a3fd8bef885c",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 106,
+      "total_deletions": 5,
+      "accepted_lines": 106,
+      "overriden_lines": 0
+    }
+  }
+}
