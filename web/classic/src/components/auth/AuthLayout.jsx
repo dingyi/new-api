@@ -24,6 +24,7 @@ import {
   Checkbox,
   InputGroup,
   Label,
+  Link,
   Modal,
   ModalBackdrop,
   ModalBody,
@@ -32,6 +33,7 @@ import {
   ModalFooter,
   ModalHeader,
   Separator,
+  Text,
   TextField,
   useOverlayState,
 } from '@heroui/react';
@@ -68,9 +70,12 @@ export function AuthBrand({ logo, systemName }) {
         alt={systemName}
         className='h-11 w-11 rounded-2xl border border-border bg-background p-1.5 shadow-sm'
       />
-      <div className='text-xl font-semibold tracking-tight text-foreground'>
+      <Text
+        as='span'
+        className='text-xl font-semibold tracking-tight text-foreground'
+      >
         {systemName}
-      </div>
+      </Text>
     </div>
   );
 }
@@ -124,25 +129,25 @@ export function AuthAgreement({
         <span className='text-sm leading-6 text-muted'>
           {t('我已阅读并同意')}
           {hasUserAgreement ? (
-            <a
+            <Link
               href='/user-agreement'
               target='_blank'
               rel='noopener noreferrer'
               className='mx-1 font-medium text-primary transition hover:text-primary/80'
             >
               {t('用户协议')}
-            </a>
+            </Link>
           ) : null}
           {hasUserAgreement && hasPrivacyPolicy ? t('和') : null}
           {hasPrivacyPolicy ? (
-            <a
+            <Link
               href='/privacy-policy'
               target='_blank'
               rel='noopener noreferrer'
               className='mx-1 font-medium text-primary transition hover:text-primary/80'
             >
               {t('隐私政策')}
-            </a>
+            </Link>
           ) : null}
         </span>
       </Checkbox>
@@ -154,9 +159,12 @@ export function AuthLinkRow({ prefix, linkText, to }) {
   return (
     <div className='mt-6 text-center text-sm text-muted'>
       {prefix}{' '}
-      <a href={to} className='font-medium text-primary transition hover:text-primary/80'>
+      <Link
+        href={to}
+        className='font-medium text-primary transition hover:text-primary/80'
+      >
         {linkText}
-      </a>
+      </Link>
     </div>
   );
 }
