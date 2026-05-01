@@ -497,15 +497,28 @@ those same files but were **not** auto-ported — port them on demand:
   unmatched logs render as `阶梯计费（未匹配到对应阶梯）` instead of
   showing fabricated unit prices. Cache-token filter (`9f8a4ec05`)
   hides cache-related price rows when no cache tokens were used.
-- [~] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
-  `cc4ad6c39`). **Backend portion already absorbed by the merge** —
-  `controller/ratio_sync.go` (+161/-46), `controller/channel_upstream_update.go`,
-  `setting/billing_setting/tiered_billing.go`, `setting/ratio_setting/model_ratio.go`
-  all carry the new pricing-endpoint sync logic. **Frontend portion deferred to a
-  separate PR**: upstream's `UpstreamRatioSync.jsx` rewrite is ~667 lines on the
-  Semi stack (new feedback, loading states, expression-priority resolution UI);
-  needs a from-scratch HeroUI implementation. Don't try to merge it into the
-  v1.0 sync PR — keeps the diff reviewable.
+- [x] **Sync upstream pricing from /pricing endpoint** (`f424f906d`,
+  `cc4ad6c39`). Backend was absorbed by the v1.0 sync merge; the frontend
+  port for `web/classic/src/pages/Setting/Ratio/UpstreamRatioSync.jsx`
+  shipped as a separate PR (HeroUI-native implementation rather than the
+  upstream Semi rewrite). What landed:
+  - 5 new ratio-type columns: `create_cache_ratio`, `image_ratio`,
+    `audio_ratio`, `audio_completion_ratio`, plus the existing
+    `cache_ratio`. The old version only synced `model_ratio` /
+    `completion_ratio` / `cache_ratio` / `model_price`.
+  - Tiered billing (`billing_mode` + `billing_expr`) treated as a
+    third category alongside ratio/price. Selecting a tiered field
+    auto-pairs the partner from the same source (mirrors upstream's
+    `getPreferredSyncField` / `selectValue` semantics).
+  - Expression-priority resolution: when a source ships a non-empty
+    `billing_expr` for a model, picking any non-expr field from that
+    source upgrades the selection to `billing_expr` so the user
+    captures the strictly-richer pricing config in one click.
+  - Apply-time conflict check tightened so tiered overlays neither
+    trigger nor get tripped by the price-vs-ratio swap warning.
+  - Numeric values normalised through `Number(...)` instead of
+    `parseFloat`, so explicit `0` survives the round-trip and tiered
+    string fields don't get NaN-ified.
 - [x] **`web/default/` ownership decided: maintained (not passive).**
   Both frontends are first-class on this fork. `web/default/` tracks
   upstream verbatim and we forward upstream's `web/default/` changes

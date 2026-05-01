@@ -3930,6 +3930,10 @@
     "预计费用": "",
     "默认使用 USD 结算": "",
     "最后登录": "Dernière connexion",
-    "上游已删除的模型": "Supprimé en amont"
+    "上游已删除的模型": "Supprimé en amont",
+    "创建缓存倍率": "Ratio de création de cache",
+    "图像倍率": "Ratio image",
+    "音频倍率": "Ratio audio",
+    "阶梯计费表达式": "Expression de facturation par paliers"
   }
 }
