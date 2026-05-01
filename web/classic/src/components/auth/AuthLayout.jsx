@@ -36,13 +36,21 @@ import {
 
 export function AuthPage({ children, turnstile }) {
   return (
-    <div className='relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.18),transparent_24%),var(--app-background)] px-4 py-12 sm:px-6 lg:px-8'>
+    // `min-h-full flex flex-col` makes the auth page fill <main>'s
+    // available height inside PageLayout's flex-1 content wrapper,
+    // so the inner column below can centre the form vertically AND
+    // still leave the footer pinned to the viewport bottom. Earlier
+    // we hard-coded `min-h-[calc(100vh-108px)]` + `mt-[60px]` to
+    // dodge a fixed header — PageLayout's header is now part of the
+    // flex stack, so those magic numbers stretched the auth shell
+    // taller than its parent and pushed the footer below the fold.
+    <div className='relative flex min-h-full flex-col overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15),transparent_26%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.18),transparent_24%),var(--app-background)] px-4 py-12 sm:px-6 lg:px-8'>
       <div
         className='blur-ball blur-ball-indigo'
         style={{ top: '-80px', right: '-80px', transform: 'none' }}
       />
       <div className='blur-ball blur-ball-teal' style={{ top: '50%', left: '-120px' }} />
-      <div className='relative mx-auto mt-[60px] flex min-h-[calc(100vh-108px)] w-full max-w-md flex-col items-center justify-center'>
+      <div className='relative mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center'>
         {children}
         {turnstile ? <div className='mt-6 flex justify-center'>{turnstile}</div> : null}
       </div>
