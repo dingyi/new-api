@@ -99,12 +99,15 @@ const UsageModeStep = ({
                   style={
                     selected
                       ? {
-                          // White on cyan reads cleanly in both light and
-                          // dark themes; tying SVG colour to
-                          // `--app-background` would invert with the theme
-                          // and tank the contrast on one of them.
+                          // Dark glyph on cyan matches the visual language
+                          // of this fork's `.button--primary` (cyan fill
+                          // + near-black text). Hardcoded near-black —
+                          // the token `--app-primary-foreground` is empty
+                          // in this fork, and `var(--app-foreground)`
+                          // would flip with the theme even though the
+                          // cyan fill itself is theme-stable.
                           backgroundColor: 'var(--app-primary)',
-                          color: '#fff',
+                          color: '#0a0a0a',
                         }
                       : {
                           backgroundColor: 'var(--app-surface-secondary)',
