@@ -506,6 +506,18 @@ those same files but were **not** auto-ported — port them on demand:
   Semi stack (new feedback, loading states, expression-priority resolution UI);
   needs a from-scratch HeroUI implementation. Don't try to merge it into the
   v1.0 sync PR — keeps the diff reviewable.
-- [ ] Decide longer-term whether `web/default/` is maintained against
-  upstream verbatim, forked, or removed entirely. Today it is a bundled
-  but unmaintained-by-this-fork dependency.
+- [x] **`web/default/` ownership decided: maintained (not passive).**
+  Both frontends are first-class on this fork. `web/default/` tracks
+  upstream verbatim and we forward upstream's `web/default/` changes
+  on each sync; HeroUI work continues on `web/classic/` without
+  touching default's Radix/Tailwind primitives. Practical
+  consequences:
+  - Upstream sync conflicts in `web/default/` should default to
+    "take theirs" unless a deliberate fork-only deviation is needed.
+  - Don't deep-customise default widgets (they'll re-conflict next
+    sync); cosmetic asymmetries between classic and default are
+    accepted (e.g. classic's prominent "切换到新版前端" button vs
+    default's settings-form Select for the same option).
+  - When porting an upstream feature that lives in both frontends,
+    the HeroUI port to `web/classic/` is the actual work; the
+    `web/default/` side has already arrived through the merge.
