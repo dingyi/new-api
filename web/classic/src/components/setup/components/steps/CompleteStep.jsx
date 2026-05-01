@@ -108,8 +108,10 @@ const CompleteStep = ({
             <div className='mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-surface-secondary text-muted'>
               <Icon size={20} />
             </div>
-            <div className='text-xs text-muted'>{item.label}</div>
-            <div className='mt-1 text-sm font-semibold text-foreground'>
+            <div className='text-xs leading-tight text-muted'>
+              {item.label}
+            </div>
+            <div className='mt-0.5 text-sm font-semibold leading-tight text-foreground'>
               {item.value}
             </div>
           </Card>
