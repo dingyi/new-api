@@ -4029,6 +4029,10 @@
     "页": "",
     "默认使用 USD 结算": "",
     "最后登录": "Last login",
-    "上游已删除的模型": "Removed by upstream"
+    "上游已删除的模型": "Removed by upstream",
+    "创建缓存倍率": "Create cache ratio",
+    "图像倍率": "Image ratio",
+    "音频倍率": "Audio ratio",
+    "阶梯计费表达式": "Tiered billing expression"
   }
 }

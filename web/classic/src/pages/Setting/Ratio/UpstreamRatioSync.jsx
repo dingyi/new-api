@@ -57,6 +57,44 @@ import ChannelSelectorModal from '../../../components/settings/ChannelSelectorMo
 const inputClass =
   'h-10 w-full rounded-xl border border-border bg-background px-3 text-sm text-foreground outline-none transition focus:border-primary disabled:opacity-50';
 
+// All sync field keys the backend returns inside `differences[model]`.
+// Order matters — UI surfaces fields in this exact order so the most
+// important pricing rows appear first. Kept in sync with
+// `controller/ratio_sync.go` `pricingSyncFields`.
+const RATIO_FIELDS = [
+  'model_ratio',
+  'completion_ratio',
+  'cache_ratio',
+  'create_cache_ratio',
+  'image_ratio',
+  'audio_ratio',
+  'audio_completion_ratio',
+];
+const SYNC_FIELD_ORDER = [
+  ...RATIO_FIELDS,
+  'model_price',
+  'billing_mode',
+  'billing_expr',
+];
+
+// Tiered fields are special: backend stores them under
+// `billing_setting.{billing_mode,billing_expr}` and treats them as a paired
+// alternative to ratio/price billing. See `getBillingCategory`.
+const TIERED_FIELDS = new Set(['billing_mode', 'billing_expr']);
+
+// Maps a `ratioType` field name to the Option key on the backend that
+// `PUT /api/option/` expects when persisting the sync result. Most fields
+// follow PascalCase (`model_ratio` -> `ModelRatio`); tiered fields are
+// dotted under `billing_setting`.
+function optionKeyFor(ratioType) {
+  if (ratioType === 'billing_mode') return 'billing_setting.billing_mode';
+  if (ratioType === 'billing_expr') return 'billing_setting.billing_expr';
+  return ratioType
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
 function StatusChip({ tone = 'grey', bg, color, prefixIcon, children }) {
   if (bg) {
     return (
@@ -360,23 +398,99 @@ export default function UpstreamRatioSync(props) {
     }
   };
 
+  // Three categories: `price` (single fixed price), `tiered` (expression
+  // billing under `billing_setting.*`), and `ratio` (the standard
+  // multi-field unit-cost flow). `tiered` is mutually exclusive with both
+  // `price` and `ratio`; selecting a tiered field auto-pairs the other
+  // tiered field from the same source. See `selectValue`.
   function getBillingCategory(ratioType) {
-    return ratioType === 'model_price' ? 'price' : 'ratio';
+    if (ratioType === 'model_price') return 'price';
+    if (TIERED_FIELDS.has(ratioType)) return 'tiered';
+    return 'ratio';
   }
 
-  const selectValue = useCallback((model, ratioType, value) => {
-    const category = getBillingCategory(ratioType);
-    setResolutions((prev) => {
-      const newModelRes = { ...(prev[model] || {}) };
-      Object.keys(newModelRes).forEach((rt) => {
-        if (getBillingCategory(rt) !== category) {
-          delete newModelRes[rt];
+  // Resolve which sync field actually wins for a (model, ratioType, source)
+  // selection. When the upstream ships a `billing_expr` for this model and
+  // the user picked any non-expr field from the same source, prefer the
+  // expression — it carries strictly more pricing information than a single
+  // ratio cell. Mirrors upstream `getPreferredSyncField`.
+  const getPreferredSyncField = useCallback(
+    (modelDiffs, ratioType, sourceName) => {
+      if (!modelDiffs || !sourceName) return ratioType;
+      if (ratioType === 'billing_expr') return ratioType;
+      const exprValue = modelDiffs.billing_expr?.upstreams?.[sourceName];
+      if (
+        exprValue !== null &&
+        exprValue !== undefined &&
+        exprValue !== 'same'
+      ) {
+        return 'billing_expr';
+      }
+      return ratioType;
+    },
+    [],
+  );
+
+  const selectValue = useCallback(
+    (model, ratioType, value, sourceName) => {
+      const modelDiffs = differences[model];
+      const preferredType = getPreferredSyncField(
+        modelDiffs,
+        ratioType,
+        sourceName,
+      );
+      const preferredValue =
+        preferredType === ratioType
+          ? value
+          : (modelDiffs?.[preferredType]?.upstreams?.[sourceName] ?? value);
+      const category = getBillingCategory(preferredType);
+
+      setResolutions((prev) => {
+        const newModelRes = { ...(prev[model] || {}) };
+        // Tiered is mutually exclusive with price/ratio but tiered fields
+        // pair with each other; conversely picking ratio/price clears
+        // existing tiered selections. Mirror the same mutual-exclusion
+        // rules upstream uses so apply-time conflict checks still hold.
+        Object.keys(newModelRes).forEach((rt) => {
+          const rtCategory = getBillingCategory(rt);
+          if (category === 'tiered') {
+            if (rtCategory !== 'tiered') delete newModelRes[rt];
+          } else {
+            if (rtCategory !== category) delete newModelRes[rt];
+          }
+        });
+        newModelRes[preferredType] = preferredValue;
+
+        // Auto-pair the partner tiered field from the same source so a
+        // single click captures the full tiered config. If the source
+        // didn't expose `billing_mode`, default to `tiered_expr` because
+        // any user-selected expression implies the tiered mode.
+        if (category === 'tiered' && sourceName && modelDiffs) {
+          const modeVal = modelDiffs.billing_mode?.upstreams?.[sourceName];
+          const exprVal = modelDiffs.billing_expr?.upstreams?.[sourceName];
+          if (
+            modeVal !== undefined &&
+            modeVal !== null &&
+            modeVal !== 'same'
+          ) {
+            newModelRes['billing_mode'] = modeVal;
+          } else if (preferredType === 'billing_expr') {
+            newModelRes['billing_mode'] = 'tiered_expr';
+          }
+          if (
+            exprVal !== undefined &&
+            exprVal !== null &&
+            exprVal !== 'same'
+          ) {
+            newModelRes['billing_expr'] = exprVal;
+          }
         }
+
+        return { ...prev, [model]: newModelRes };
       });
-      newModelRes[ratioType] = value;
-      return { ...prev, [model]: newModelRes };
-    });
-  }, []);
+    },
+    [differences, getPreferredSyncField],
+  );
 
   const performSync = useCallback(
     async (currentRatios) => {
@@ -384,29 +498,52 @@ export default function UpstreamRatioSync(props) {
         ModelRatio: { ...currentRatios.ModelRatio },
         CompletionRatio: { ...currentRatios.CompletionRatio },
         CacheRatio: { ...currentRatios.CacheRatio },
+        CreateCacheRatio: { ...currentRatios.CreateCacheRatio },
+        ImageRatio: { ...currentRatios.ImageRatio },
+        AudioRatio: { ...currentRatios.AudioRatio },
+        AudioCompletionRatio: { ...currentRatios.AudioCompletionRatio },
         ModelPrice: { ...currentRatios.ModelPrice },
+        'billing_setting.billing_mode': {
+          ...currentRatios['billing_setting.billing_mode'],
+        },
+        'billing_setting.billing_expr': {
+          ...currentRatios['billing_setting.billing_expr'],
+        },
       };
 
       Object.entries(resolutions).forEach(([model, ratios]) => {
         const selectedTypes = Object.keys(ratios);
         const hasPrice = selectedTypes.includes('model_price');
-        const hasRatio = selectedTypes.some((rt) => rt !== 'model_price');
+        const hasRatio = selectedTypes.some((rt) => RATIO_FIELDS.includes(rt));
+        // Tiered selections coexist with neither side being deleted —
+        // they live under `billing_setting.*` keys, so ratio/price keys
+        // for the same model can stay around (and vice versa). Backend
+        // chooses based on `billing_mode` at billing time.
 
         if (hasPrice) {
+          // Picking a fixed price for a model invalidates every per-token
+          // ratio for that same model — keep the option JSONs consistent
+          // with upstream's `controller/option.go` semantics.
           delete finalRatios.ModelRatio[model];
           delete finalRatios.CompletionRatio[model];
           delete finalRatios.CacheRatio[model];
+          delete finalRatios.CreateCacheRatio[model];
+          delete finalRatios.ImageRatio[model];
+          delete finalRatios.AudioRatio[model];
+          delete finalRatios.AudioCompletionRatio[model];
         }
         if (hasRatio) {
           delete finalRatios.ModelPrice[model];
         }
 
         Object.entries(ratios).forEach(([ratioType, value]) => {
-          const optionKey = ratioType
-            .split('_')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join('');
-          finalRatios[optionKey][model] = parseFloat(value);
+          const optionKey = optionKeyFor(ratioType);
+          // billing_mode / billing_expr stay as strings; numeric ratios
+          // and prices are normalised through `Number(...)` instead of
+          // `parseFloat` so `0` and `0.0` survive without becoming `NaN`.
+          finalRatios[optionKey][model] = TIERED_FIELDS.has(ratioType)
+            ? value
+            : Number(value);
         });
       });
 
@@ -453,23 +590,45 @@ export default function UpstreamRatioSync(props) {
   );
 
   const applySync = async () => {
+    // Best-effort JSON parse; falls back to {} so a malformed option (e.g.
+    // not-yet-saved value) doesn't throw and abort the entire sync flow.
+    const parseOption = (raw) => {
+      try {
+        return JSON.parse(raw || '{}');
+      } catch {
+        return {};
+      }
+    };
     const currentRatios = {
-      ModelRatio: JSON.parse(props.options.ModelRatio || '{}'),
-      CompletionRatio: JSON.parse(props.options.CompletionRatio || '{}'),
-      CacheRatio: JSON.parse(props.options.CacheRatio || '{}'),
-      ModelPrice: JSON.parse(props.options.ModelPrice || '{}'),
+      ModelRatio: parseOption(props.options.ModelRatio),
+      CompletionRatio: parseOption(props.options.CompletionRatio),
+      CacheRatio: parseOption(props.options.CacheRatio),
+      CreateCacheRatio: parseOption(props.options.CreateCacheRatio),
+      ImageRatio: parseOption(props.options.ImageRatio),
+      AudioRatio: parseOption(props.options.AudioRatio),
+      AudioCompletionRatio: parseOption(props.options.AudioCompletionRatio),
+      ModelPrice: parseOption(props.options.ModelPrice),
+      'billing_setting.billing_mode': parseOption(
+        props.options['billing_setting.billing_mode'],
+      ),
+      'billing_setting.billing_expr': parseOption(
+        props.options['billing_setting.billing_expr'],
+      ),
     };
 
     const conflicts = [];
 
+    // The pre-apply conflict check only cares about price-vs-ratio swaps —
+    // tiered always coexists, so we don't probe for it here.
     const getLocalBillingCategory = (model) => {
       if (currentRatios.ModelPrice[model] !== undefined) return 'price';
       if (
-        currentRatios.ModelRatio[model] !== undefined ||
-        currentRatios.CompletionRatio[model] !== undefined ||
-        currentRatios.CacheRatio[model] !== undefined
-      )
+        RATIO_FIELDS.some(
+          (rt) => currentRatios[optionKeyFor(rt)]?.[model] !== undefined,
+        )
+      ) {
         return 'ratio';
+      }
       return null;
     };
 
@@ -484,9 +643,20 @@ export default function UpstreamRatioSync(props) {
 
     Object.entries(resolutions).forEach(([model, ratios]) => {
       const localCat = getLocalBillingCategory(model);
-      const newCat = 'model_price' in ratios ? 'price' : 'ratio';
+      const selectedTypes = Object.keys(ratios);
+      let newCat;
+      if ('model_price' in ratios) {
+        newCat = 'price';
+      } else if (RATIO_FIELDS.some((rt) => selectedTypes.includes(rt))) {
+        newCat = 'ratio';
+      } else {
+        newCat = 'tiered';
+      }
 
-      if (localCat && localCat !== newCat) {
+      // Tiered overlays the existing pricing without replacing it, so it
+      // doesn't trigger the price-vs-ratio swap warning even when the
+      // model already has a local fixed price or ratio.
+      if (localCat && newCat !== 'tiered' && localCat !== newCat) {
         const currentDesc =
           localCat === 'price'
             ? `${t('固定价格')} : ${currentRatios.ModelPrice[model]}`
@@ -530,11 +700,7 @@ export default function UpstreamRatioSync(props) {
     const tmp = [];
     Object.entries(differences).forEach(([model, ratioTypes]) => {
       const hasPrice = 'model_price' in ratioTypes;
-      const hasOtherRatio = [
-        'model_ratio',
-        'completion_ratio',
-        'cache_ratio',
-      ].some((rt) => rt in ratioTypes);
+      const hasOtherRatio = RATIO_FIELDS.some((rt) => rt in ratioTypes);
       const billingConflict = hasPrice && hasOtherRatio;
 
       Object.entries(ratioTypes).forEach(([ratioType, diff]) => {
@@ -622,7 +788,9 @@ export default function UpstreamRatioSync(props) {
           upstreamVal !== undefined &&
           upstreamVal !== 'same'
         ) {
-          selectValue(row.model, row.ratioType, upstreamVal);
+          // sourceName plumbed in so `selectValue` can run the
+          // billing_expr-priority resolution against this upstream.
+          selectValue(row.model, row.ratioType, upstreamVal, upName);
         }
       });
     } else {
@@ -641,9 +809,9 @@ export default function UpstreamRatioSync(props) {
     }
   };
 
-  const handleRowSelect = (model, ratioType, upstreamVal, checked) => {
+  const handleRowSelect = (model, ratioType, upstreamVal, checked, upName) => {
     if (checked) {
-      selectValue(model, ratioType, upstreamVal);
+      selectValue(model, ratioType, upstreamVal, upName);
     } else {
       setResolutions((prev) => {
         const newRes = { ...prev };
@@ -674,14 +842,25 @@ export default function UpstreamRatioSync(props) {
     { value: 'model_ratio', label: t('模型倍率') },
     { value: 'completion_ratio', label: t('补全倍率') },
     { value: 'cache_ratio', label: t('缓存倍率') },
+    { value: 'create_cache_ratio', label: t('创建缓存倍率') },
+    { value: 'image_ratio', label: t('图像倍率') },
+    { value: 'audio_ratio', label: t('音频倍率') },
+    { value: 'audio_completion_ratio', label: t('音频补全倍率') },
     { value: 'model_price', label: t('固定价格') },
+    { value: 'billing_expr', label: t('阶梯计费表达式') },
   ];
 
   const ratioTypeLabel = {
     model_ratio: t('模型倍率'),
     completion_ratio: t('补全倍率'),
     cache_ratio: t('缓存倍率'),
+    create_cache_ratio: t('创建缓存倍率'),
+    image_ratio: t('图像倍率'),
+    audio_ratio: t('音频倍率'),
+    audio_completion_ratio: t('音频补全倍率'),
     model_price: t('固定价格'),
+    billing_mode: t('计费模式'),
+    billing_expr: t('阶梯计费表达式'),
   };
 
   const renderEmpty = () => (
@@ -937,6 +1116,7 @@ export default function UpstreamRatioSync(props) {
                                     record.ratioType,
                                     upstreamVal,
                                     checked,
+                                    upName,
                                   )
                                 }
                                 ariaLabel={`${record.model} ${upName}`}
