@@ -55,7 +55,11 @@ function SetupStepper({ steps, currentStep, t }) {
     }
     if (isCompleted) {
       return {
-        borderColor: 'color-mix(in srgb, var(--app-primary) 40%, transparent)',
+        // Dark border tracks the dark glyph inside the completed step's
+        // circle; user explicitly asked for it. Kept the 40% transparency
+        // from the original cyan tint so completed reads quieter than
+        // active (which still uses a saturated cyan border + ring).
+        borderColor: 'color-mix(in srgb, #0a0a0a 40%, transparent)',
         backgroundColor: 'color-mix(in srgb, var(--app-primary) 5%, transparent)',
       };
     }
