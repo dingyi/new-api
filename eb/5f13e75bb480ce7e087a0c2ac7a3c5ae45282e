@@ -1,0 +1,25 @@
+web/classic/src/components/setup/components/steps/UsageModeStep.jsx
+  c0f33899bc7de144 78-99,101-112,116
+web/classic/src/components/setup/SetupWizard.jsx
+  c0f33899bc7de144 43-46,48-75,86-89,93-98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.42",
+  "base_commit_sha": "eb5f13e75bb480ce7e087a0c2ac7a3c5ae45282e",
+  "prompts": {
+    "c0f33899bc7de144": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "405d7c24-2742-424d-a13b-d54e30a21792",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Ding Yi <dingyimac@gmail.com>",
+      "messages": [],
+      "total_additions": 80,
+      "total_deletions": 20,
+      "accepted_lines": 77,
+      "overriden_lines": 0
+    }
+  }
+}
