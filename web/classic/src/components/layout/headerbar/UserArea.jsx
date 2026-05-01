@@ -18,8 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Avatar } from '@heroui/react';
+import { Avatar, Button } from '@heroui/react';
 import {
   ChevronDown,
   CreditCard,
@@ -52,7 +51,6 @@ const UserArea = ({
   userState,
   isLoading,
   isMobile,
-  isSelfUseMode,
   logout,
   navigate,
   t,
@@ -194,34 +192,24 @@ const UserArea = ({
         ) : null}
       </div>
     );
-  } else {
-    const showRegisterButton = !isSelfUseMode;
-
-    return (
-      <div className='flex items-center'>
-        <Link to='/login' className='flex'>
-          <span
-            className={`inline-flex h-9 items-center justify-center bg-surface-secondary px-3 text-xs font-medium text-foreground transition-colors hover:bg-surface-tertiary ${
-              showRegisterButton && !isMobile
-                ? 'rounded-l-full rounded-r-none'
-                : 'rounded-full'
-            }`}
-          >
-            {t('登录')}
-          </span>
-        </Link>
-        {showRegisterButton && (
-          <div className='hidden md:block'>
-            <Link to='/register' className='flex -ml-px'>
-              <span className='inline-flex h-9 items-center justify-center rounded-l-none rounded-r-full bg-primary px-3 text-xs font-medium text-white transition-opacity hover:opacity-90'>
-                {t('注册')}
-              </span>
-            </Link>
-          </div>
-        )}
-      </div>
-    );
   }
+
+  // Logged-out: HeroUI primary button as the lone CTA. Register is
+  // intentionally not surfaced here — fork policy is to drive
+  // unauthenticated visitors through /login (which itself links to
+  // /register inline if the system permits sign-ups). Keeping the
+  // navbar free of a second auth CTA simplifies the surface and
+  // matches the post-cleanup design discussed during smoke test.
+  return (
+    <Button
+      variant='primary'
+      size='sm'
+      className='h-9 rounded-full px-4'
+      onPress={() => navigate('/login')}
+    >
+      {t('登录')}
+    </Button>
+  );
 };
 
 export default UserArea;
