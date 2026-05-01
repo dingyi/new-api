@@ -269,7 +269,7 @@ const SetupWizard = () => {
     setCurrentStep(current);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     // For root_init=false, validate admin username and password
     if (!setupStatus.root_init) {
       if (!formData.username || !formData.username.trim()) {
@@ -300,28 +300,47 @@ const SetupWizard = () => {
     // 提交表单至后端
     setLoading(true);
 
-    // Submit to backend
-    API.post('/api/setup', formValues)
-      .then((res) => {
-        const { success, message } = res.data;
+    try {
+      const res = await API.post('/api/setup', formValues);
+      const { success, message } = res.data;
 
-        if (success) {
-          showNotice(t('系统初始化成功，正在跳转...'));
+      if (success) {
+        showNotice(t('系统初始化成功，正在跳转...'));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+        return;
+      }
+
+      // Backend declined the submission. The most common cause is a
+      // staleness race: another tab or an earlier session already
+      // finished setup (so backend's `constant.Setup` is true), but
+      // this tab's cached `setupStatus` still says status:false and
+      // walked the user through every step. Re-poll /api/setup; if
+      // it now reports status:true, treat the failure as "already
+      // done elsewhere" and redirect quietly — showing the raw
+      // 系统已经初始化完成 error here would imply user-facing fault
+      // and leaves them stuck on the wizard with no working action.
+      try {
+        const recheck = await API.get('/api/setup');
+        if (recheck.data?.success && recheck.data?.data?.status) {
+          showNotice(t('系统已初始化，正在跳转...'));
           setTimeout(() => {
             window.location.reload();
           }, 1500);
-        } else {
-          showError(message || t('初始化失败，请重试'));
+          return;
         }
-      })
-      .catch((error) => {
-        console.error('API error:', error);
-        showError(t('系统初始化失败，请重试'));
-        setLoading(false);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      } catch {
+        // Fall through to surface the original error message below.
+      }
+
+      showError(message || t('初始化失败，请重试'));
+    } catch (error) {
+      console.error('API error:', error);
+      showError(t('系统初始化失败，请重试'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 获取步骤内容

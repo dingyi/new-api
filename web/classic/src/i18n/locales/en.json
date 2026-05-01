@@ -4034,6 +4034,7 @@
     "图像倍率": "Image ratio",
     "音频倍率": "Audio ratio",
     "阶梯计费表达式": "Tiered billing expression",
-    "待处理": "Pending"
+    "待处理": "Pending",
+    "系统已初始化，正在跳转...": "System already initialized, redirecting..."
   }
 }

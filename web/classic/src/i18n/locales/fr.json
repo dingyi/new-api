@@ -3935,6 +3935,7 @@
     "图像倍率": "Ratio image",
     "音频倍率": "Ratio audio",
     "阶梯计费表达式": "Expression de facturation par paliers",
-    "待处理": "En attente"
+    "待处理": "En attente",
+    "系统已初始化，正在跳转...": "Système déjà initialisé, redirection..."
   }
 }
