@@ -255,16 +255,23 @@ const PageLayout = () => {
               room regardless of scroll state.
             */}
             <main
-              className='flex-1 min-w-0 relative overflow-y-auto'
+              // `flex flex-col` + the `flex-1` on the content wrapper push
+              // the footer down to the bottom of the viewport when the page
+              // body is shorter than the available height. Without this,
+              // short pages (like the unauthenticated home / pricing) would
+              // leave the footer floating mid-page above empty space.
+              className='flex flex-1 min-w-0 flex-col relative overflow-y-auto'
               style={{ WebkitOverflowScrolling: 'touch' }}
             >
-              <div className={shouldInnerPadding ? 'p-6' : ''}>
+              <div
+                className={`flex-1 min-h-0 ${shouldInnerPadding ? 'p-6' : ''}`}
+              >
                 <ErrorBoundary key={location.pathname}>
                   <App />
                 </ErrorBoundary>
               </div>
               {!shouldHideFooter && (
-                <footer className='w-full'>
+                <footer className='w-full shrink-0'>
                   <FooterBar />
                 </footer>
               )}
